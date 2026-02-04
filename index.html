@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Space | Social Links</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    
+    <style>
+        body {
+            background: url('background.avif') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* --- TOP LEFT NAME STYLE --- */
+        .top-left-name {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .top-left-name span {
+            width: 8px;
+            height: 8px;
+            background: #00ffd5; /* Accent dot */
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 10px #00ffd5;
+        }
+
+        .glass-container {
+            background: rgba(20, 15, 45, 0.45);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 30px;
+            padding: 40px 20px;
+            text-align: center;
+            width: 100%;
+            max-width: 550px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            margin-bottom: 15px;
+            object-fit: cover;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        p.subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            margin-bottom: 35px;
+        }
+
+        /* Horizontal Row Setup */
+        .icon-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .icon-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 65px; /* Keeps everything aligned */
+        }
+
+        /* --- LIGHTER BEFORE HOVER --- */
+        .icon-link {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.08); 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.9); 
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            margin-bottom: 8px;
+        }
+
+        .icon-label {
+            color: rgba(255, 255, 255, 1); 
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        /* --- BRIGHT ON HOVER --- */
+        .icon-link:hover {
+            transform: translateY(-8px) scale(1.15);
+            color: #ffffff; /* Bright white icon on hover */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.55);
+            border-color: rgba(255, 255, 255, 0.85);
+        }
+
+        .icon-wrapper:hover .icon-label {
+            color: rgba(255, 255, 255, 1); /* Label brightens up too */
+        }
+
+       /* --- VISIBLE COLORS BEFORE HOVER (Increased Opacity to 0.55) --- */
+        .fb { background: rgba(24, 119, 242, 0.95); }
+        .ig { background: rgba(228, 64, 95, 0.95); }
+        .pf { background: rgba(0, 210, 255, 0.95); }
+        .yt { background: rgba(255, 0, 0, 0.95); }
+        .fv { background: rgba(29, 191, 115, 0.95); }
+        .up { background: rgba(111, 218, 68, 0.95); }
+        .gh { background: rgba(51, 51, 51, 0.95); }
+        .go { background: rgba(234, 67, 53, 0.95); }
+
+        /* --- SOLID COLORS ON HOVER --- */
+        .fb:hover { background: rgba(24, 119, 242, 1); }
+        .ig:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .pf:hover { background: rgba(0, 210, 255, 1); }
+        .yt:hover { background: rgba(255, 0, 0, 1); }
+        .fv:hover { background: rgba(29, 191, 115, 1); }
+        .up:hover { background: rgba(111, 218, 68, 1); }
+        .gh:hover { background: rgba(51, 51, 51, 1); }
+        .go:hover { background: rgba(234, 67, 53, 1); }
+        
+    </style>
+</head>
+<body>
+<div class="top-left-name">
+    <span></span> ANAM FAROOQUE 
+</div>
+    
+<div class="glass-container">
+    <img src="pics/profilepic.jpeg" alt="Profile" class="profile-pic">
+    
+    <h1>Welcome to My Space</h1>
+    <p class="subtitle">Connect with me across the web</p>
+
+    <div class="icon-group">
+        <div class="icon-wrapper">
+            <a href="https://www.fiverr.com/users/anamarain/portfolio" class="icon-link fv" title="Hire me on Fiverr"><i class="fa-solid fa-bolt"></i></a>
+            <span class="icon-label">Fiverr</span>
+        </div>
+
+        <div class="icon-wrapper">
+            <a href="https://www.upwork.com/freelancers/~014d4a76c1ff4a64ab" class="icon-link up" title="Hire me on Upwork"><i class="fa-brands fa-upwork"></i></a>
+            <span class="icon-label">Upwork</span>
+        </div>
+        
+        <div class="icon-wrapper">
+            <a href="https://www.facebook.com/Anam.Arain07" class="icon-link fb" title="Visit my Facebook"><i class="fab fa-facebook-f"></i></a>
+            <span class="icon-label">FB</span>
+        </div>
+
+        <div class="icon-wrapper">
+            <a href="https://www.instagram.com/exerovisionai/" class="icon-link ig" title="Follow me on Instagram"><i class="fab fa-instagram"></i></a>
+            <span class="icon-label">Insta</span>
+        </div>
+
+        <div class="icon-wrapper">
+            <a href="Myportfolio.html" class="icon-link pf" title="View my Work"><i class="fas fa-briefcase"></i></a>
+            <span class="icon-label">Portfolio</span>
+        </div>
+
+        <div class="icon-wrapper">
+            <a href="https://www.youtube.com/channel/UCeibpbTVfBKZViKB4qfxLwA" class="icon-link yt" title="Subscribe on YouTube"><i class="fab fa-youtube"></i></a>
+            <span class="icon-label">Youtube</span>
+        </div>
+
+        <div class="icon-wrapper">
+            <a href="https://github.com/AnamFarooque" class="icon-link gh" title="Check my Code"><i class="fab fa-github"></i></a>
+            <span class="icon-label">Git</span>
+        </div>
+
+        <div class="icon-wrapper">
+            <a href="https://dotnerdsacademy.blogspot.com/" class="icon-link go" title="My Blogs"><i class="fab fa-blogger"></i></a>
+            <span class="icon-label">My Blog</span>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+
