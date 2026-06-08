@@ -17,59 +17,60 @@
             align-items: center;
             justify-content: center;
             font-family: 'Inter', sans-serif;
-            padding: 40px 20px;
+            padding: 80px 20px 40px 20px;
         }
 
-        /* --- TOP LEFT NAME STYLE --- */
+        /* --- MODERNIZED HEADER NAME (STAYS TOP-LEFT ON DESKTOP, CENTERS ON MOBILE) --- */
         .top-left-name {
             position: absolute;
             top: 30px;
             left: 30px;
             color: #ffffff;
-            font-weight: 800;
-            font-size: 1.2rem;
+            font-weight: 700;
+            font-size: 1rem;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             z-index: 10;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .top-left-name span {
-            width: 8px;
-            height: 8px;
+            width: 6px;
+            height: 6px;
             background: #00ffd5; 
             border-radius: 50%;
             display: inline-block;
-            box-shadow: 0 0 10px #00ffd5;
+            box-shadow: 0 0 8px #00ffd5;
         }
 
+        /* --- MAIN CONTAINER (MOBILE FIRST FLUIDITY) --- */
         .glass-container {
             background: rgba(20, 15, 45, 0.45);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 30px;
-            padding: 40px 25px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 24px;
+            padding: 35px 20px;
             text-align: center;
             width: 100%;
-            max-width: 550px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            max-width: 500px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
             animation: float 6s ease-in-out infinite;
             transition: all 0.3s ease-in-out;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
+            50% { transform: translateY(-8px); }
         }
 
         .profile-pic {
-            width: 100px;
-            height: 100px;
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
-            border: 3px solid rgba(255, 255, 255, 0.8);
+            border: 2px solid rgba(255, 255, 255, 0.6);
             margin-bottom: 15px;
             object-fit: cover;
         }
@@ -77,30 +78,32 @@
         h1 {
             color: #ffffff;
             font-weight: 700;
-            font-size: 1.8rem;
-            margin-bottom: 5px;
+            font-size: 1.6rem;
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
         }
 
         p.subtitle {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
-            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.85rem;
+            margin-bottom: 18px;
         }
 
         .status-badge {
-            background: rgba(0, 255, 213, 0.1);
-            border: 1px solid rgba(0, 255, 213, 0.3);
+            background: rgba(0, 255, 213, 0.08);
+            border: 1px solid rgba(0, 255, 213, 0.25);
             color: #00ffd5;
-            padding: 5px 12px;
-            border-radius: 20px;
+            padding: 6px 14px;
+            border-radius: 30px;
             font-size: 0.75rem;
             font-weight: 600;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             margin-bottom: 25px;
         }
+        
         .status-badge .dot {
             width: 6px;
             height: 6px;
@@ -115,63 +118,68 @@
             100% { opacity: 0.4; }
         }
 
-        /* --- TAB NAVIGATION --- */
+        /* --- TAB NAVIGATION (BALANCED RATIO) --- */
         .nav-tabs-custom {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 5px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            gap: 5px;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 4px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
         }
+        
         .tab-btn {
             background: transparent;
             border: none;
-            color: rgba(255, 255, 255, 0.6);
-            padding: 8px 20px;
-            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.55);
+            padding: 8px 12px;
+            font-size: 0.8rem;
             font-weight: 600;
-            border-radius: 10px;
+            border-radius: 8px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             flex: 1;
         }
+        
         .tab-btn.active, .tab-btn:hover {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.12);
             color: #ffffff;
         }
+        
         .tab-content-panel {
             display: none;
         }
+        
         .tab-content-panel.active {
             display: block;
-            animation: fadeIn 0.4s ease;
+            animation: fadeIn 0.3s ease-in-out;
         }
+        
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(6px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Icon Group Matrix */
+        /* --- SOCIAL LINKS MATRIX --- */
         .icon-group {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px 12px;
+            justify-items: center;
         }
 
         .icon-wrapper {
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 65px;
+            width: 100%;
         }
 
         .icon-link {
-            width: 50px;
-            height: 50px;
+            width: 46px;
+            height: 46px;
             background: rgba(255, 255, 255, 0.08); 
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 50%;
@@ -179,82 +187,67 @@
             align-items: center;
             justify-content: center;
             color: rgba(255, 255, 255, 0.9); 
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            margin-bottom: 8px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.2);
+            margin-bottom: 6px;
         }
 
         .icon-label {
-            color: rgba(255, 255, 255, 1); 
+            color: rgba(255, 255, 255, 0.75); 
             font-size: 0.6rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             font-weight: 600;
-            transition: color 0.3s ease;
         }
 
         .icon-link:hover {
-            transform: translateY(-8px) scale(1.15);
+            transform: translateY(-4px);
             color: #ffffff;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.55);
-            border-color: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+            border-color: rgba(255, 255, 255, 0.6);
         }
 
-        .icon-wrapper:hover .icon-label {
-            color: rgba(255, 255, 255, 1);
-        }
+        /* Brands Accent Engine */
+        .fb { background: #1877f2; }
+        .ig { background: #e4405f; }
+        .pf { background: #00d2ff; }
+        .yt { background: #ff0000; }
+        .fv { background: #1dbf73; }
+        .up { background: #6fda44; }
+        .gh { background: #24292e; }
+        .go { background: #ea4335; }
 
-        /* Brands Backgrounds */
-        .fb { background: rgba(24, 119, 242, 0.95); }
-        .ig { background: rgba(228, 64, 95, 0.95); }
-        .pf { background: rgba(0, 210, 255, 0.95); }
-        .yt { background: rgba(255, 0, 0, 0.95); }
-        .fv { background: rgba(29, 191, 115, 0.95); }
-        .up { background: rgba(111, 218, 68, 0.95); }
-        .gh { background: rgba(51, 51, 51, 0.95); }
-        .go { background: rgba(234, 67, 53, 0.95); }
-
-        .fb:hover { background: rgba(24, 119, 242, 1); }
-        .ig:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
-        .pf:hover { background: rgba(0, 210, 255, 1); }
-        .yt:hover { background: rgba(255, 0, 0, 1); }
-        .fv:hover { background: rgba(29, 191, 115, 1); }
-        .up:hover { background: rgba(111, 218, 68, 1); }
-        .gh:hover { background: rgba(51, 51, 51, 1); }
-        .go:hover { background: rgba(234, 67, 53, 1); }
-
-        /* --- OPTIMIZED MINI SKILLS PANEL --- */
+        /* --- CLEAN AND ALIGNED SKILLS PANEL --- */
         .skills-container {
-            max-height: 380px;
+            max-height: 340px;
             overflow-y: auto;
-            padding-right: 5px;
+            padding-right: 4px;
             text-align: left;
         }
 
-        /* Standard custom scrollbar */
         .skills-container::-webkit-scrollbar {
             width: 4px;
         }
         .skills-container::-webkit-scrollbar-thumb {
-            background: rgba(0, 255, 213, 0.3);
+            background: rgba(0, 255, 213, 0.25);
             border-radius: 10px;
         }
 
         .skill-group-box {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 14px;
-            padding: 12px 14px;
-            margin-bottom: 12px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 10px;
         }
 
         .skill-group-title {
-            color: rgba(0, 255, 213, 0.9);
-            font-size: 0.75rem;
+            color: #00ffd5;
+            font-size: 0.72rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.8px;
             margin-bottom: 8px;
             display: flex;
             align-items: center;
@@ -262,7 +255,9 @@
         }
 
         .skill-group-title i {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
+            width: 14px;
+            text-align: center;
         }
 
         .micro-badges-wrapper {
@@ -271,60 +266,107 @@
             gap: 6px;
         }
 
+        /* STRICT BOX & ICON ALIGNMENT STRUCT */
         .micro-badge {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.09);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.07);
             color: rgba(255, 255, 255, 0.85);
-            font-size: 0.7rem;
+            font-size: 0.68rem;
             font-weight: 500;
-            padding: 3px 8px;
+            padding: 4px 8px;
             border-radius: 6px;
             display: inline-flex;
             align-items: center;
-            gap: 5px;
+            justify-content: center;
+            gap: 6px;
+            line-height: 1; /* Eliminates rogue baseline spacing variations */
             transition: all 0.2s ease;
         }
 
         .micro-badge:hover {
-            background: rgba(0, 255, 213, 0.1);
+            background: rgba(0, 255, 213, 0.08);
             border-color: rgba(0, 255, 213, 0.3);
             color: #ffffff;
-            transform: translateY(-1px);
         }
 
+        /* Micro Icon Standardization */
         .micro-badge i {
-            font-size: 0.65rem;
-            color: rgba(0, 255, 213, 0.8);
+            font-size: 0.7rem;
+            color: #00ffd5;
+            display: inline-block;
+            width: auto;
+            height: auto;
+            line-height: 1;
+            vertical-align: middle;
         }
 
-        /* --- ACTION FOOTER LINK --- */
+        /* --- FOOTER ACTION BUTTON --- */
         .action-footer {
-            margin-top: 25px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 18px;
         }
+        
         .btn-visit-portfolio {
-            background: linear-gradient(135deg, rgba(0, 255, 213, 0.15), rgba(0, 210, 255, 0.15));
-            border: 1px solid rgba(0, 255, 213, 0.4);
+            background: linear-gradient(135deg, rgba(0, 255, 213, 0.12), rgba(0, 210, 255, 0.12));
+            border: 1px solid rgba(0, 255, 213, 0.35);
             color: #00ffd5;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            padding: 10px 24px;
-            border-radius: 50px;
+            padding: 9px 20px;
+            border-radius: 30px;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 255, 213, 0.1);
+            gap: 8px;
+            letter-spacing: 0.3px;
+            transition: all 0.2s ease;
         }
+        
         .btn-visit-portfolio:hover {
             background: #00ffd5;
             color: #140f2d;
             border-color: #00ffd5;
-            box-shadow: 0 0 20px rgba(0, 255, 213, 0.4);
-            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(0, 255, 213, 0.35);
+            transform: translateY(-1px);
+        }
+
+        /* --- RESPONSIVE MOBILE BREAKPOINTS --- */
+        @media (max-width: 576px) {
+            body {
+                padding-top: 90px; /* Provides separation room below top header */
+                align-items: flex-start;
+            }
+            
+            .top-left-name {
+                position: absolute;
+                top: 25px;
+                left: 50%;
+                transform: translateX(-50%); /* Clean alignment on small touch views */
+                width: 100%;
+                justify-content: center;
+                font-size: 0.85rem;
+            }
+
+            .glass-container {
+                padding: 25px 15px;
+                border-radius: 20px;
+            }
+
+            .icon-group {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 12px 8px;
+            }
+
+            .icon-link {
+                width: 42px;
+                height: 42px;
+                font-size: 1.1rem;
+            }
+            
+            .icon-label {
+                font-size: 0.55rem;
+            }
         }
         
     </style>
@@ -345,13 +387,11 @@
         <span class="dot"></span> Shipping Full-Scale Web Solutions
     </div>
 
-    <!-- TAB NAVIGATION -->
     <div class="nav-tabs-custom">
         <button class="tab-btn active" onclick="switchTab('links')">Social Profiles</button>
         <button class="tab-btn" onclick="switchTab('skills')">Skills & Expertise</button>
     </div>
 
-    <!-- TAB PANEL 1: LINKS GRID -->
     <div id="links" class="tab-content-panel active">
         <div class="icon-group">
             <div class="icon-wrapper">
@@ -363,23 +403,16 @@
                 <a href="https://www.upwork.com/freelancers/~014d4a76c1ff4a64ab" class="icon-link up" title="Hire me on Upwork"><i class="fa-solid fa-laptop-code"></i></a>
                 <span class="icon-label">Upwork</span>
             </div>
-
-            <div class="icon-wrapper">
-                <a href="https://www.linkedin.com/in/anam-arain-07?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="icon-link ig" title="Follow me on LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <span class="icon-label">LinkedIn</span>
-            </div>
             
-            <!--<div class="icon-wrapper">
+            <div class="icon-wrapper">
                 <a href="https://www.facebook.com/Anam.Arain07" class="icon-link fb" title="Visit my Facebook"><i class="fab fa-facebook-f"></i></a>
                 <span class="icon-label">FB</span>
-            </div>-->
+            </div>
 
             <div class="icon-wrapper">
                 <a href="https://www.instagram.com/exerovisionai/" class="icon-link ig" title="Follow me on Instagram"><i class="fab fa-instagram"></i></a>
                 <span class="icon-label">Insta</span>
             </div>
-
-            
 
             <div class="icon-wrapper">
                 <a href="Myportfolio.html" class="icon-link pf" title="View my Work"><i class="fas fa-briefcase"></i></a>
@@ -403,90 +436,82 @@
         </div>
     </div>
 
-    <!-- TAB PANEL 2: OPTIMIZED TECH STACK MATRIX -->
     <div id="skills" class="tab-content-panel">
         <div class="skills-container">
             
-            <!-- Core Languages -->
             <div class="skill-group-box">
-                <div class="skill-group-title"><i class="fa-solid fa-terminal"></i> Core Languages</div>
+                <div class="skill-group-title"><i class="fa-solid fa-laptop-code"></i> Core Languages</div>
                 <div class="micro-badges-wrapper">
-                    <div class="micro-badge"><i class="fa-solid fa-code"></i> C#</div>
-                    <div class="micro-badge"><i class="fa-solid fa-code-branch"></i> VB.NET</div>
-                    <div class="micro-badge"><i class="fa-brands fa-js"></i> JavaScript</div>
-                    <div class="micro-badge"><i class="fa-solid fa-scroll"></i> TypeScript</div>
+                    <div class="micro-badge"><i class="fa-solid fa-code"></i>C#</div>
+                    <div class="micro-badge"><i class="fa-solid fa-code-branch"></i>VB.NET</div>
+                    <div class="micro-badge"><i class="fa-brands fa-js"></i>JavaScript</div>
+                    <div class="micro-badge"><i class="fa-solid fa-scroll"></i>TypeScript</div>
                 </div>
             </div>
 
-            <!-- Backend Ecosystem -->
             <div class="skill-group-box">
-                <div class="skill-group-title"><i class="fa-solid fa-gears"></i> Backend Frameworks & Systems</div>
+                <div class="skill-group-title"><i class="fa-solid fa-gears"></i> Backend Ecosystem</div>
                 <div class="micro-badges-wrapper">
-                    <div class="micro-badge"><i class="fa-solid fa-cube"></i> .NET Core</div>
-                    <div class="micro-badge"><i class="fa-solid fa-cubes"></i> .NET Framework</div>
-                    <div class="micro-badge"><i class="fa-solid fa-layer-group"></i> ASP.NET MVC</div>
-                    <div class="micro-badge"><i class="fa-solid fa-window-restore"></i> Web Forms</div>
-                    <div class="micro-badge"><i class="fa-solid fa-circle-nodes"></i> RESTful APIs</div>
-                    <div class="micro-badge"><i class="fa-solid fa-network-wired"></i> Microservices</div>
-                    <div class="micro-badge"><i class="fa-solid fa-bolt-lightning"></i> Windows Services</div>
+                    <div class="micro-badge"><i class="fa-solid fa-cube"></i>.NET Core</div>
+                    <div class="micro-badge"><i class="fa-solid fa-cubes"></i>.NET Framework</div>
+                    <div class="micro-badge"><i class="fa-solid fa-layer-group"></i>ASP.NET MVC</div>
+                    <div class="micro-badge"><i class="fa-solid fa-window-restore"></i>Web Forms</div>
+                    <div class="micro-badge"><i class="fa-solid fa-circle-nodes"></i>RESTful APIs</div>
+                    <div class="micro-badge"><i class="fa-solid fa-network-wired"></i>Microservices</div>
+                    <div class="micro-badge"><i class="fa-solid fa-bolt-lightning"></i>Windows Services</div>
                 </div>
             </div>
 
-            <!-- Frontend Architecture -->
             <div class="skill-group-box">
-                <div class="skill-group-title"><i class="fa-solid fa-laptop-code"></i> Frontend Technologies</div>
+                <div class="skill-group-title"><i class="fa-solid fa-laptop-code"></i> Frontend Infrastructure</div>
                 <div class="micro-badges-wrapper">
-                    <div class="micro-badge"><i class="fa-brands fa-react"></i> React.js</div>
-                    <div class="micro-badge"><i class="fa-solid fa-circle-chevron-right"></i> Next.js</div>
-                    <div class="micro-badge"><i class="fa-brands fa-html5"></i> HTML5 / CSS3</div>
-                    <div class="micro-badge"><i class="fa-brands fa-bootstrap"></i> Bootstrap</div>
-                    <div class="micro-badge"><i class="fa-solid fa-bolt"></i> AJAX & jQuery</div>
-                    <div class="micro-badge"><i class="fa-solid fa-window-maximize"></i> WPF / WinForms / XAML</div>
+                    <div class="micro-badge"><i class="fa-brands fa-react"></i>React.js</div>
+                    <div class="micro-badge"><i class="fa-solid fa-circle-chevron-right"></i>Next.js</div>
+                    <div class="micro-badge"><i class="fa-brands fa-html5"></i>HTML5 / CSS3</div>
+                    <div class="micro-badge"><i class="fa-brands fa-bootstrap"></i>Bootstrap</div>
+                    <div class="micro-badge"><i class="fa-solid fa-bolt"></i>AJAX & jQuery</div>
+                    <div class="micro-badge"><i class="fa-solid fa-window-maximize"></i>WPF / WinForms</div>
                 </div>
             </div>
 
-            <!-- Database & BI Reporting -->
             <div class="skill-group-box">
-                <div class="skill-group-title"><i class="fa-solid fa-database"></i> Database & Intelligence</div>
+                <div class="skill-group-title"><i class="fa-solid fa-database"></i> Database & Reporting</div>
                 <div class="micro-badges-wrapper">
-                    <div class="micro-badge"><i class="fa-solid fa-server"></i> SQL Server</div>
-                    <div class="micro-badge"><i class="fa-solid fa-font-awesome"></i> Entity Framework</div>
-                    <div class="micro-badge"><i class="fa-solid fa-file-code"></i> Stored Procedures</div>
-                    <div class="micro-badge"><i class="fa-solid fa-chart-simple"></i> SSRS / RDLC / SSIS</div>
-                    <div class="micro-badge"><i class="fa-solid fa-gem"></i> Crystal Reports</div>
-                    <div class="micro-badge"><i class="fa-solid fa-gauge-high"></i> Query Optimization & Data Modeling</div>
+                    <div class="micro-badge"><i class="fa-solid fa-server"></i>SQL Server</div>
+                    <div class="micro-badge"><i class="fa-solid fa-font-awesome"></i>Entity Framework</div>
+                    <div class="micro-badge"><i class="fa-solid fa-file-code"></i>Stored Procedures</div>
+                    <div class="micro-badge"><i class="fa-solid fa-chart-simple"></i>SSRS / RDLC / SSIS</div>
+                    <div class="micro-badge"><i class="fa-solid fa-gem"></i>Crystal Reports</div>
+                    <div class="micro-badge"><i class="fa-solid fa-gauge-high"></i>Optimization</div>
                 </div>
             </div>
 
-            <!-- Architecture Patterns & Security -->
             <div class="skill-group-box">
-                <div class="skill-group-title"><i class="fa-solid fa-shield-halved"></i> Patterns & Security</div>
+                <div class="skill-group-title"><i class="fa-solid fa-shield-halved"></i> Design Patterns & Security</div>
                 <div class="micro-badges-wrapper">
-                    <div class="micro-badge"><i class="fa-solid fa-shield"></i> Clean Architecture</div>
-                    <div class="micro-badge"><i class="fa-solid fa-square-check"></i> SOLID Principles</div>
-                    <div class="micro-badge"><i class="fa-solid fa-diagram-project"></i> Repository & Unit of Work</div>
-                    <div class="micro-badge"><i class="fa-solid fa-key"></i> Authentication / Authorization</div>
-                    <div class="micro-badge"><i class="fa-solid fa-user-shield"></i> RBAC & PCI-DSS</div>
+                    <div class="micro-badge"><i class="fa-solid fa-shield"></i>Clean Architecture</div>
+                    <div class="micro-badge"><i class="fa-solid fa-square-check"></i>SOLID Principles</div>
+                    <div class="micro-badge"><i class="fa-solid fa-diagram-project"></i>Repository Pattern</div>
+                    <div class="micro-badge"><i class="fa-solid fa-key"></i>Auth & Authz</div>
+                    <div class="micro-badge"><i class="fa-solid fa-user-shield"></i>RBAC / PCI-DSS</div>
                 </div>
             </div>
 
-            <!-- Cloud, DevOps & Tools -->
             <div class="skill-group-box">
-                <div class="skill-group-title"><i class="fa-solid fa-cloud-arrow-up"></i> Cloud, DevOps & Dev Tools</div>
+                <div class="skill-group-title"><i class="fa-solid fa-cloud-arrow-up"></i> Clouds & Tooling</div>
                 <div class="micro-badges-wrapper">
-                    <div class="micro-badge"><i class="fa-brands fa-aws"></i> AWS</div>
-                    <div class="micro-badge"><i class="fa-solid fa-cloud"></i> Azure</div>
-                    <div class="micro-badge"><i class="fa-brands fa-github"></i> Git / GitHub Actions</div>
-                    <div class="micro-badge"><i class="fa-solid fa-infinity"></i> CI/CD Pipelines</div>
-                    <div class="micro-badge"><i class="fa-solid fa-envelope-open-text"></i> Postman / SSMS</div>
-                    <div class="micro-badge"><i class="fa-brands fa-figma"></i> Figma / Jira</div>
+                    <div class="micro-badge"><i class="fa-brands fa-aws"></i>AWS</div>
+                    <div class="micro-badge"><i class="fa-solid fa-cloud"></i>Azure</div>
+                    <div class="micro-badge"><i class="fa-brands fa-github"></i>Git / GitHub Actions</div>
+                    <div class="micro-badge"><i class="fa-solid fa-infinity"></i>CI/CD</div>
+                    <div class="micro-badge"><i class="fa-solid fa-envelope-open-text"></i>Postman / SSMS</div>
+                    <div class="micro-badge"><i class="fa-brands fa-figma"></i>Figma / Jira</div>
                 </div>
             </div>
 
         </div>
     </div>
 
-    <!-- QUICK ACTIONS FOOTER -->
     <div class="action-footer">
         <a href="Myportfolio.html" target="_blank" class="btn-visit-portfolio">
             <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit My Portfolio
