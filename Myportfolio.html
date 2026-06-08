@@ -7,7 +7,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
    
@@ -29,20 +29,21 @@
             background-size: cover;
         }
 
-        /* Snowflake Animation */
+        /* --- Consolidated Prominent Snow Animation --- */
         .snowflake {
             position: fixed;
-            top: -10px;
+            top: -20px;
             color: white;
             user-select: none;
             z-index: 9999;
             pointer-events: none;
             animation: fall linear infinite;
+            filter: drop-shadow(0 0 3px rgba(0,0,0,0.1));
         }
 
         @keyframes fall {
             to {
-                transform: translateY(105vh);
+                transform: translateY(105vh) rotate(360deg);
             }
         }
 
@@ -64,10 +65,10 @@
             object-fit: cover;
         }
 
-            .profile-pic:hover {
-                transform: rotate(360deg) scale(1.2);
-                border-color: var(--accent-blue);
-            }
+        .profile-pic:hover {
+            transform: rotate(360deg) scale(1.2);
+            border-color: var(--accent-blue);
+        }
 
         .navbar-brand {
             font-weight: 800;
@@ -83,12 +84,12 @@
             text-align: center;
         }
 
-            .hero h1 {
-                font-family: 'Playfair Display', serif;
-                font-size: 4rem;
-                margin-bottom: 20px;
-                color: var(--text-main);
-            }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
 
         /* Modern Project Gallery */
         .project-card {
@@ -101,10 +102,10 @@
             height: 100%;
         }
 
-            .project-card:hover {
-                transform: translateY(-15px);
-                box-shadow: 0 20px 40px rgba(56, 189, 248, 0.2);
-            }
+        .project-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(56, 189, 248, 0.2);
+        }
 
         .project-img-box {
             height: 200px;
@@ -115,12 +116,16 @@
             overflow: hidden;
         }
 
-            .project-img-box img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                transition: 0.5s;
-            }
+        .project-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-zoom:hover {
+            transform: scale(1.05);
+        }
 
         /* Skill Pills */
         .skill-pill {
@@ -135,28 +140,11 @@
             transition: 0.3s;
         }
 
-            .skill-pill:hover {
-                background: var(--accent-blue);
-                color: white;
-                border-color: var(--accent-blue);
-                transform: scale(1.05);
-            }
-
-        /* --- Prominent Snow Animation --- */
-        .snowflake {
-            position: fixed;
-            top: -20px;
+        .skill-pill:hover {
+            background: var(--accent-blue);
             color: white;
-            z-index: 9999;
-            pointer-events: none;
-            animation: fall linear infinite;
-            filter: drop-shadow(0 0 3px rgba(0,0,0,0.1));
-        }
-
-        @keyframes fall {
-            to {
-                transform: translateY(105vh) rotate(360deg);
-            }
+            border-color: var(--accent-blue);
+            transform: scale(1.05);
         }
 
         /* --- Social Section Styling --- */
@@ -167,7 +155,6 @@
             border-radius: 50px 50px 0 0;
         }
 
-        /* Wrapper for each icon + text pair */
         .social-item {
             display: flex;
             flex-direction: column;
@@ -188,7 +175,7 @@
             color: var(--accent-blue);
             font-size: 1.5rem;
             transition: 0.3s;
-            margin-bottom: 8px; /* Space between icon and text */
+            margin-bottom: 8px;
         }
 
         .social-label {
@@ -209,32 +196,13 @@
             color: var(--accent-blue);
         }
 
-        .fiverr-icon:hover {
-            background: #1dbf73;
-        }
-
-        .upwork-icon:hover {
-            background: #37a000;
-        }
-
-        .yt-icon:hover {
-            background: #ff0000;
-        }
-
-        .ig-icon:hover {
-            background: #e1306c;
-        }
-
-        .project-zoom {
-            transition: transform 0.3s ease;
-        }
-
-            .project-zoom:hover {
-                transform: scale(1.05);
-            }
+        .fiverr-item:hover .social-icon { background: #1dbf73; color: white; }
+        .upwork-item:hover .social-icon { background: #37a000; color: white; }
+        .yt-item:hover .social-icon { background: #ff0000; color: white; }
+        .ig-item:hover .social-icon { background: #e1306c; color: white; }
 
         #imageModal .modal-content {
-            backdrop-filter: blur(5px); /* Frosty effect for the modal background */
+            backdrop-filter: blur(5px);
         }
 
         .form-control {
@@ -243,11 +211,11 @@
             backdrop-filter: blur(5px);
         }
 
-            .form-control:focus {
-                background: white;
-                border-color: var(--accent-blue);
-                box-shadow: 0 0 0 0.25rem rgba(56, 189, 248, 0.25);
-            }
+        .form-control:focus {
+            background: white;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 0.25rem rgba(56, 189, 248, 0.25);
+        }
 
         .btn-primary {
             background-color: var(--accent-blue);
@@ -255,10 +223,10 @@
             transition: 0.3s;
         }
 
-            .btn-primary:hover {
-                background-color: #0ea5e9;
-                transform: translateY(-2px);
-            }
+        .btn-primary:hover {
+            background-color: #0ea5e9;
+            transform: translateY(-2px);
+        }
 
         #emailModal .form-control {
             border: 1px solid #e2e8f0;
@@ -266,11 +234,11 @@
             transition: 0.3s;
         }
 
-            #emailModal .form-control:focus {
-                border-color: var(--accent-blue);
-                box-shadow: 0 0 0 0.25rem rgba(56, 189, 248, 0.15);
-                background: white !important;
-            }
+        #emailModal .form-control:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 0.25rem rgba(56, 189, 248, 0.15);
+            background: white !important;
+        }
 
         #emailModal .btn-primary:hover {
             background-color: #0ea5e9 !important;
@@ -286,11 +254,11 @@
             height: 100%;
         }
 
-            .service-card:hover {
-                transform: translateY(-10px);
-                background: rgba(255, 255, 255, 0.8);
-                box-shadow: 0 15px 35px rgba(56, 189, 248, 0.15);
-            }
+        .service-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 15px 35px rgba(56, 189, 248, 0.15);
+        }
 
         .service-icon-box {
             width: 70px;
@@ -310,6 +278,75 @@
             color: var(--text-main);
             margin-top: 15px;
         }
+
+        /* --- System Architecture Section Styling --- */
+.architecture-tab-nav .nav-link {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(5px);
+    color: var(--text-main);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 15px;
+    padding: 12px 24px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.architecture-tab-nav .nav-link.active {
+    background: var(--accent-blue) !important;
+    color: white !important;
+    border-color: var(--accent-blue);
+    box-shadow: 0 8px 20px rgba(56, 189, 248, 0.25);
+    transform: translateY(-2px);
+}
+
+.arch-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(148, 163, 184, 0.08);
+}
+
+.arch-step-badge {
+    width: 40px;
+    height: 40px;
+    background: var(--ice-blue);
+    color: var(--accent-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.schema-table {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+
+.schema-table th {
+    background: var(--text-main);
+    color: white;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.code-badge {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #f1f5f9;
+    color: #0f172a;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    border: 1px solid #e2e8f0;
+}
     </style>
 </head>
 <body>
@@ -350,186 +387,526 @@
         </div>
     </header>
 
-    <!-- <section id="skills" class="py-5">
-        <div class="container text-center">
-            <h2 class="fw-bold mb-5">Technical Mastery</h2>
-            <div class="d-flex flex-wrap justify-content-center">
-                <div class="skill-pill">ASP.NET Core</div>
-                <div class="skill-pill">React.js</div>
-                <div class="skill-pill">C# / VB.NET</div>
-                <div class="skill-pill">Entity Framework</div>
-                <div class="skill-pill">Microservices</div>
-                <div class="skill-pill">SQL Server</div>
-                <div class="skill-pill">AWS Cloud</div>
-                <div class="skill-pill">Bootstrap 5</div>
-                <div class="skill-pill">WPF / XAML</div>
-            </div>
-        </div>
-    </section> -->
-
-
+   <!-- Solutions & Capabilities Section -->
     <section id="skills" class="py-5">
-        <div class="container text-center">
-            <h2 class="fw-bold mb-5">Technical Mastery</h2>
-            <div class="d-flex flex-wrap justify-content-center">
-                <div class="skill-pill">ASP.NET Core</div>
-                <div class="skill-pill">React.js</div>
-                <div class="skill-pill">C# / VB.NET</div>
-                <div class="skill-pill">Entity Framework</div>
-                <div class="skill-pill">Microservices</div>
-                <div class="skill-pill">SQL Server</div>
-                <div class="skill-pill">AWS Cloud</div>
-                <div class="skill-pill">Bootstrap 5</div>
-                <div class="skill-pill">WPF / XAML</div>
-                <span class="skill-pill">ASP.NET MVC</span>
-                <span class="skill-pill">Web Forms</span>
-                <span class="skill-pill">RESTful APIs</span>
-                <span class="skill-pill">Windows Services</span>
-                <span class="skill-pill">SSRS</span>
-                <span class="skill-pill">RDLC</span>
-                <span class="skill-pill">Crystal Reports</span>
-                <span class="skill-pill">SSIS</span>
-                <span class="skill-pill">WPF</span>
-                <span class="skill-pill">WinForms</span>
-                <span class="skill-pill">AWS</span>
-                <span class="skill-pill">Azure</span>
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="badge rounded-pill px-4 py-2 mb-2" style="background: white; color: var(--accent-blue); border: 1px solid var(--accent-blue)">WHAT I BUILD</span>
+                <h2 class="fw-bold">Solutions & Expertise</h2>
+                <p class="text-muted mx-auto" style="max-width: 600px;">Click on any capability below to explore how I transform complex logic into high-impact software realities.</p>
+            </div>
 
+            <div class="row g-4">
+                <!-- Solution 1: ERP -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 p-4 border-0 rounded-4 shadow-sm text-center service-card" 
+                         style="background: rgba(255,255,255,0.7); backdrop-filter: blur(10px); cursor: pointer;"
+                         onclick="openSolutionModal(this)"
+                         data-title="Enterprise ERP Systems"
+                         data-icon="fa-network-wired"
+                         data-icon-color="text-primary"
+                         data-badges="ASP.NET MVC,SQL Server,EF Core,Multi-Vendor Architecture"
+                         data-details="I design and deploy massive ERP structures engineered to streamline complex business workflows. This includes building multi-vendor inventory systems, automated real-time financial ledgers, internal auditing frameworks, and role-based data access security to ensure complete corporate alignment.">
+                        <div class="fs-1 text-primary mb-3"><i class="fa-solid fa-network-wired"></i></div>
+                        <h4 class="fw-bold h5">Enterprise ERP Systems</h4>
+                        <p class="small text-muted mb-3">Complete operational software to automate corporate workflows, human resources, multi-vendor inventories, and massive internal datasets smoothly.</p>
+                        <div class="mt-auto">
+                            <span class="badge bg-light text-dark m-1">ASP.NET MVC</span>
+                            <span class="badge bg-light text-dark m-1">SQL Server</span>
+                            <span class="badge bg-light text-dark m-1">EF Core</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Solution 2: Fintech -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 p-4 border-0 rounded-4 shadow-sm text-center service-card" 
+                         style="background: rgba(255,255,255,0.7); backdrop-filter: blur(10px); cursor: pointer;"
+                         onclick="openSolutionModal(this)"
+                         data-title="Fintech & Secure Payments"
+                         data-icon="fa-credit-card"
+                         data-icon-color="text-success"
+                         data-badges="ASP.NET Core API,Microservices,Azure,Data Encryption"
+                         data-details="Experienced in building high-availability transactional architectures capable of processing billions of transactions securely. Focused on robust API design, microservices communication patterns, ironclad ledger logic, data compliance, and end-to-end payload encryption.">
+                        <div class="fs-1 text-success mb-3"><i class="fa-solid fa-credit-card"></i></div>
+                        <h4 class="fw-bold h5">Fintech & Secure Payment Platforms</h4>
+                        <p class="small text-muted mb-3">High-availability transactional engines built to process billions of payments with ironclad identity security and complex ledger logic.</p>
+                        <div class="mt-auto">
+                            <span class="badge bg-light text-dark m-1">ASP.NET Core API</span>
+                            <span class="badge bg-light text-dark m-1">Microservices</span>
+                            <span class="badge bg-light text-dark m-1">Azure</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Solution 3: POS & Retail -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 p-4 border-0 rounded-4 shadow-sm text-center service-card" 
+                         style="background: rgba(255,255,255,0.7); backdrop-filter: blur(10px); cursor: pointer;"
+                         onclick="openSolutionModal(this)"
+                         data-title="Point of Sale (POS) Systems"
+                         data-icon="fa-cash-register"
+                         data-icon-color="text-warning"
+                         data-badges="C#,WinForms,RDLC / SSRS,Offline Sync"
+                         data-details="Tailored systems developed for fast-paced retail and sales management environments. Features real-time stock notifications, barcode scanner mapping, lightning-fast dynamic billing calculations, and clean automated profit-loss reporting with crystal clear PDF/print execution.">
+                        <div class="fs-1 text-warning mb-3"><i class="fa-solid fa-cash-register"></i></div>
+                        <h4 class="fw-bold h5">Point of Sale (POS) & Retail Systems</h4>
+                        <p class="small text-muted mb-3">Fast, real-time sales management software featuring live stock tracking, billing automation, and detailed automated profit-loss reporting.</p>
+                        <div class="mt-auto">
+                            <span class="badge bg-light text-dark m-1">C#</span>
+                            <span class="badge bg-light text-dark m-1">WinForms</span>
+                            <span class="badge bg-light text-dark m-1">RDLC / SSRS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Solution 4: Full-Stack Web Apps -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 p-4 border-0 rounded-4 shadow-sm text-center service-card" 
+                         style="background: rgba(255,255,255,0.7); backdrop-filter: blur(10px); cursor: pointer;"
+                         onclick="openSolutionModal(this)"
+                         data-title="Full-Stack Custom Web Apps"
+                         data-icon="fa-laptop-code"
+                         data-icon-color="text-info"
+                         data-badges="React.js,Bootstrap 5,RESTful APIs,UX Design"
+                         data-details="Developing beautiful front-end client single page applications backed by robust administrative dashboards. Ensuring every view is mobile-responsive, performs under high concurrent user load, and communicates flawlessly with server-side data infrastructure.">
+                        <div class="fs-1 text-info mb-3"><i class="fa-solid fa-laptop-code"></i></div>
+                        <h4 class="fw-bold h5">Full-Stack Custom Web Apps</h4>
+                        <p class="small text-muted mb-3">Interactive, highly responsive web platforms combining sleek modern user interfaces with powerful, secure administrative backend code.</p>
+                        <div class="mt-auto">
+                            <span class="badge bg-light text-dark m-1">React.js</span>
+                            <span class="badge bg-light text-dark m-1">Bootstrap 5</span>
+                            <span class="badge bg-light text-dark m-1">RESTful APIs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Solution 5: Desktop Applications -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 p-4 border-0 rounded-4 shadow-sm text-center service-card" 
+                         style="background: rgba(255,255,255,0.7); backdrop-filter: blur(10px); cursor: pointer;"
+                         onclick="openSolutionModal(this)"
+                         data-title="Standalone Desktop Software"
+                         data-icon="fa-display"
+                         data-icon-color="text-danger"
+                         data-badges="WPF / XAML,Windows Services,VB.NET,Local Database Sync"
+                         data-details="Building robust, native desktop applications optimized for physical office configurations. Specialized in writing silent Windows background services, system hardware utilities, and highly complex local data recovery solutions for long-term reliability.">
+                        <div class="fs-1 text-danger mb-3"><i class="fa-solid fa-display"></i></div>
+                        <h4 class="fw-bold h5">Standalone Desktop Software</h4>
+                        <p class="small text-muted mb-3">Robust, high-performance Windows native applications designed for offline execution, utilities, background tasks, and legacy operations.</p>
+                        <div class="mt-auto">
+                            <span class="badge bg-light text-dark m-1">WPF / XAML</span>
+                            <span class="badge bg-light text-dark m-1">Windows Services</span>
+                            <span class="badge bg-light text-dark m-1">VB.NET</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Solution 6: AI-Driven Automation -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 p-4 border-0 rounded-4 shadow-sm text-center service-card" 
+                         style="background: rgba(255,255,255,0.7); backdrop-filter: blur(10px); cursor: pointer;"
+                         onclick="openSolutionModal(this)"
+                         data-title="AI Pipelines & Smart Automation"
+                         data-icon="fa-brain"
+                         data-icon-color="text-secondary"
+                         data-badges="ML.NET,LLM Integration,OCR Systems,Natural Language SQL"
+                         data-details="Integrating predictive artificial intelligence into classic legacy applications. Specializations include building automated invoice text extractors (OCR pipelines) and natural language interfaces that allow non-technical business managers to talk straight to their databases.">
+                        <div class="fs-1 text-secondary mb-3"><i class="fa-solid fa-brain"></i></div>
+                        <h4 class="fw-bold h5">AI Pipelines & Smart Automation</h4>
+                        <p class="small text-muted mb-3">Intelligent solutions integrating machine learning models, OCR invoice text extraction, and natural-language database query engines.</p>
+                        <div class="mt-auto">
+                            <span class="badge bg-light text-dark m-1">ML.NET</span>
+                            <span class="badge bg-light text-dark m-1">LLM Integration</span>
+                            <span class="badge bg-light text-dark m-1">OCR Systems</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Core Tech Cloud -->
+            <div class="text-center mt-5 pt-3">
+                <p class="small text-uppercase fw-bold text-muted tracking-wider mb-3">Full Ecosystem Competencies</p>
+                <div class="opacity-75">
+                    <span class="mx-2 small text-secondary">AWS Cloud</span> • 
+                    <span class="mx-2 small text-secondary">Crystal Reports</span> • 
+                    <span class="mx-2 small text-secondary">SSIS</span> • 
+                    <span class="mx-2 small text-secondary">Web Forms</span> • 
+                    <span class="mx-2 small text-secondary">Entity Framework</span>
+                </div>
             </div>
         </div>
     </section>
 
 
-    <section id="projects" class="py-5">
-        <div class="container">
-            <h2 class="fw-bold mb-5 text-center">Project Gallery</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="project-card p-3">
-                        <div class="project-img-box rounded-4 mb-3">
-                            <img src="pics/InvoiceDataExtractor.png"
-                                 alt="ERP Integration"
-                                 class="img-fluid project-zoom"
-                                 style="cursor: pointer;"
-                                 data-bs-toggle="modal"
-                                 data-bs-target="#imageModal"
-                                 onclick="showImage(this.src, 'Invoice Data Extractor')">
-                        </div>
+<!-- ========================================== -->
+<!-- PROJECTS SECTION                           -->
+<!-- ========================================== -->
+<section id="projects" class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="text-primary text-uppercase fw-bold tracking-wider small">Portfolio</span>
+            <h2 class="fw-bold mt-1">Engineered Solutions & Projects</h2>
+            <p class="text-muted max-w-2xl mx-auto">A curated gallery of enterprise production codebases, full-stack systems, and dedicated API utilities.</p>
+        </div>
 
-                        <div class="mb-2">
-                            <span class="badge bg-success">OCR</span>
-                            <span class="badge bg-warning text-dark">ERP Auto</span>
-                        </div>
-                        <h5 class="fw-bold">Invoice Extractor</h5>
-                        <p class="small text-muted">Automated pipeline that extracts data from PDF invoices and populates SQL databases, eliminating manual entry for ERP systems.</p>
-                        <a href="#" class="btn btn-sm btn-outline-primary rounded-pill">Automation Path</a>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="project-card p-3">
-                        <div class="project-img-box rounded-4 mb-3">
-                            <img src="pics/SmartERPArchitecture.png"
-                                 alt="ERP Architecture"
-                                 class="img-fluid project-zoom"
-                                 style="cursor: pointer;"
-                                 data-bs-toggle="modal"
-                                 data-bs-target="#imageModal"
-                                 onclick="showImage(this.src, 'Intelligent ERP Architecture')">
-                        </div>
-
-                        <div class="mb-2">
-                            <span class="badge bg-danger">Architecture</span>
-                            <span class="badge bg-info text-dark">Cloud AI</span>
-                        </div>
-                        <h5 class="fw-bold">Intelligent ERP Suite</h5>
-                        <p class="small text-muted">Enterprise-grade architecture layering Identity Security, Core Business Logic, and AI Services into a unified, scalable system.</p>
-                        <a href="#" class="btn btn-sm btn-outline-primary rounded-pill">View Architecture</a>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="project-card p-3">
-                        <div class="project-img-box rounded-4 mb-3">
-                            <img src="pics/Namipay.jfif"
-                                 alt="Namipay"
-                                 class="img-fluid project-zoom"
-                                 style="cursor: pointer;"
-                                 data-bs-toggle="modal"
-                                 data-bs-target="#imageModal"
+       <!-- ROW 1: ENTERPRISE & CLIENT HIGHLIGHTS -->
+        <div class="row g-4 mb-5">
+            <div class="col-12 text-center">
+                <h4 class="fw-bold mb-3 text-dark position-relative d-inline-block pb-2">Enterprise Client Highlights</h4>
+                <div class="mx-auto bg-primary rounded" style="width: 50px; height: 3px; margin-top: -4px;"></div>
+            </div>
+            
+            <!-- CARD 1: NAMIPAY -->
+            <div class="col-md-4">
+                <div class="project-card h-100 p-3 bg-white shadow-sm rounded-4 border-0 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="project-img-box rounded-4 mb-3 position-relative overflow-hidden" style="height: 200px;">
+                            <img src="pics/Namipay.jfif" 
+                                 alt="Namipay Solutions" 
+                                 class="img-fluid w-100 h-100 object-fit-cover project-zoom" 
+                                 style="cursor: pointer;" 
+                                 data-bs-toggle="modal" 
+                                 data-bs-target="#imageModal" 
                                  onclick="showImage(this.src, 'Namipay Solutions')">
                         </div>
                         <div class="mb-2">
-                            <span class="badge bg-primary">Fintech</span>
-                            <span class="badge bg-dark">ASP.NET Core</span>
+                            <span class="badge bg-primary rounded-pill">Fintech</span>
+                            <span class="badge bg-dark rounded-pill">ASP.NET Core</span>
                         </div>
                         <h5 class="fw-bold">Namipay Solutions</h5>
-                        <p class="small text-muted">A massive fintech platform processing 2.39B+ transactions across Saudi Arabia with high availability.</p>
-                        <a href="https://www.linkedin.com/company/namipaysa/" class="btn btn-sm btn-outline-primary rounded-pill">View Company</a>
+                        <p class="small text-muted">High-availability transactional fintech gateway processing massive real-time payment volumes across Saudi Arabia.</p>
+                    </div>
+                    <div class="d-flex gap-2 pt-3 mt-auto">
+                        <a href="https://www.namipay.com.sa/" target="_blank" class="btn btn-sm btn-outline-success rounded-pill flex-grow-1 d-flex align-items-center justify-content-center gap-1 fw-semibold">
+                            <i class="bi bi-box-arrow-up-right"></i> Company
+                        </a>
+                        <a href="https://www.linkedin.com/company/namipaysa/" target="_blank" class="btn btn-sm text-white rounded-pill flex-grow-1 d-flex align-items-center justify-content-center gap-1 fw-semibold" style="background: linear-gradient(135deg, #4f46e5, #3b82f6);">
+                            <i class="bi bi-linkedin"></i> LinkedIn
+                        </a>
                     </div>
                 </div>
+            </div>
 
-                <div class="col-md-4">
-                    <div class="project-card p-3">
-                        <div class="project-img-box rounded-4 mb-3">
-                            <img src="pics/WASA.png"
-                                 alt="WASA"
-                                 class="img-fluid project-zoom"
-                                 style="cursor: pointer;"
-                                 data-bs-toggle="modal"
-                                 data-bs-target="#imageModal"
+            <!-- CARD 2: WASA BILLING ERP -->
+            <div class="col-md-4">
+                <div class="project-card h-100 p-3 bg-white shadow-sm rounded-4 border-0 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="project-img-box rounded-4 mb-3 position-relative overflow-hidden" style="height: 200px;">
+                            <img src="pics/WASA.png" 
+                                 alt="WASA Billing" 
+                                 class="img-fluid w-100 h-100 object-fit-cover project-zoom" 
+                                 style="cursor: pointer;" 
+                                 data-bs-toggle="modal" 
+                                 data-bs-target="#imageModal" 
                                  onclick="showImage(this.src, 'WASA Billing ERP')">
                         </div>
                         <div class="mb-2">
-                            <span class="badge bg-primary">VB.NET</span>
-                            <span class="badge bg-secondary">RDLC Reports</span>
+                            <span class="badge bg-success rounded-pill">GovTech</span>
+                            <span class="badge bg-secondary rounded-pill">VB.NET / SQL</span>
                         </div>
                         <h5 class="fw-bold">WASA Billing ERP</h5>
-                        <p class="small text-muted">Complete recovery & billing system built to manage government utility data and complex reporting.</p>
-                        <a href="https://wasahyd.com.pk/" class="btn btn-sm btn-outline-primary rounded-pill">View Case</a>
+                        <p class="small text-muted">Utility recovery system handling multi-district consumer data engines, balance calculation, and secure reporting pipelines.</p>
+                    </div>
+                    <div class="d-flex gap-2 pt-3 mt-auto">
+                        <a href="https://wasahyd.com.pk/" target="_blank" class="btn btn-sm btn-outline-info text-dark rounded-pill flex-grow-1 d-flex align-items-center justify-content-center gap-1 fw-semibold">
+                            <i class="bi bi-link-45deg"></i> Live Site
+                        </a>
+                        <!-- <button class="btn btn-sm btn-dark rounded-pill flex-grow-1 fw-semibold" data-bs-toggle="modal" data-bs-target="#wasaModal">
+                            <i class="bi bi-list-task me-1"></i> Details
+                        </button> -->
                     </div>
                 </div>
+            </div>
 
-                <div class="col-md-4">
-                    <div class="project-card p-3">
-                        <div class="project-img-box rounded-4 mb-3">
-                            <img src="pics/CSVAIProject.png"
-                                 alt="ML.NET Project"
-                                 class="img-fluid project-zoom"
-                                 style="cursor: pointer;"
-                                 data-bs-toggle="modal"
-                                 data-bs-target="#imageModal"
-                                 onclick="showImage(this.src, 'Smart CSV Categorizer')">
+            <!-- CARD 3: BASECAMP INTERNAL UTILITIES -->
+            <div class="col-md-4">
+                <div class="project-card h-100 p-3 bg-white shadow-sm rounded-4 border-0 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="project-img-box rounded-4 mb-3 position-relative overflow-hidden" style="height: 200px;">
+                            <img src="pics/BasecampERP.png" 
+                                 alt="Basecamp Systems" 
+                                 class="img-fluid w-100 h-100 object-fit-cover project-zoom" 
+                                 style="cursor: pointer;" 
+                                 data-bs-toggle="modal" 
+                                 data-bs-target="#imageModal" 
+                                 onclick="showImage(this.src, 'Basecamp ERP Integration')">
                         </div>
                         <div class="mb-2">
-                            <span class="badge bg-info text-dark">ML.NET</span>
-                            <span class="badge bg-secondary">C#</span>
+                            <span class="badge bg-info text-dark rounded-pill">ERP Sync</span>
+                            <span class="badge bg-dark rounded-pill">C# .NET</span>
                         </div>
-                        <h5 class="fw-bold">Smart CSV Categorizer</h5>
-                        <p class="small text-muted">A machine learning tool that automates data classification...</p>
-                        <a href="#" class="btn btn-sm btn-outline-primary rounded-pill">View Process</a>
+                        <h5 class="fw-bold">Basecamp ERP Integration</h5>
+                        <p class="small text-muted">Custom data bridge syncing structural milestones, cross-department workflows, and asset metrics for corporate tracking.</p>
+                    </div>
+                    <div class="d-flex gap-2 pt-3 mt-auto">
+                         <a href="https://oxiliry.com/" target="_blank" class="btn btn-sm btn-outline-success rounded-pill flex-grow-1 d-flex align-items-center justify-content-center gap-1 fw-semibold">
+                            <i class="bi bi-box-arrow-up-right"></i> Company
+                        </a>
+                        <a href="https://www.linkedin.com/company/oxiliry/posts/?feedView=all" target="_blank" class="btn btn-sm btn-primary rounded-pill flex-grow-1 d-flex align-items-center justify-content-center gap-1 fw-semibold">
+                            <i class="bi bi-linkedin"></i> LinkedIn
+                        </a>
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <div class="col-md-4">
-                    <div class="project-card p-3">
-                        <div class="project-img-box rounded-4 mb-3">
-                            <img src="pics/AIChatBotProject.png" alt="NL2SQL Project"
-                                 class="img-fluid project-zoom" style="cursor: pointer;"
-                                 data-bs-toggle="modal" data-bs-target="#imageModal"
+        <!-- ROW 2: CORE ARCHITECTURAL SUITES -->
+        <div class="row g-4 mb-5">
+            <div class="col-12 text-center">
+                <h4 class="fw-bold mb-3 text-dark position-relative d-inline-block pb-2">Core Architectural Suites</h4>
+                <div class="mx-auto bg-primary rounded" style="width: 50px; height: 3px; margin-top: -4px;"></div>
+            </div>
+            
+            <!-- CARD 4: DEVFLOWDIGITAL MULTI-VENDOR ECOMMERCE -->
+            <div class="col-md-4">
+                <div class="project-card h-100 p-3 bg-white shadow-sm rounded-4 border-0 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="project-img-box rounded-4 mb-3 position-relative overflow-hidden" style="height: 200px;">
+                            <img src="pics/EcommerceStore.png" 
+                                 alt="Multi-Vendor E-Commerce" 
+                                 class="img-fluid w-100 h-100 object-fit-cover project-zoom" 
+                                 style="cursor: pointer;" 
+                                 data-bs-toggle="modal" 
+                                 data-bs-target="#imageModal" 
+                                 onclick="showImage(this.src, 'Devflow Digital E-Commerce')">
+                        </div>
+                        <div class="mb-2">
+                            <span class="badge bg-danger rounded-pill">ASP.NET MVC</span>
+                            <span class="badge bg-primary rounded-pill">React Layer</span>
+                        </div>
+                        <h5 class="fw-bold">Devflow Digital E-Com</h5>
+                        <p class="small text-muted">A full-scale, multi-vendor marketplace engine featuring dynamic vendor partitions, shopping carts, and checkout flows.</p>
+                    </div>
+                    <div class="d-flex gap-2 pt-3 mt-auto">
+                        <a href="https://github.com" target="_blank" class="btn btn-sm btn-outline-dark rounded-pill flex-grow-1 d-flex align-items-center justify-content-center gap-1">
+                            <i class="bi bi-github"></i> GitHub
+                        </a>
+                        <button class="btn btn-sm btn-primary rounded-pill flex-grow-1" data-bs-toggle="modal" data-bs-target="#ecommerceModal">Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 5: DEVFLOWDIGITAL IMS & POS -->
+            <div class="col-md-4">
+                <div class="project-card h-100 p-3 bg-white shadow-sm rounded-4 border-0 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="project-img-box rounded-4 mb-3 position-relative overflow-hidden" style="height: 200px;">
+                            <img src="pics/POSSystem.png" 
+                                 alt="Inventory & POS System" 
+                                 class="img-fluid w-100 h-100 object-fit-cover project-zoom" 
+                                 style="cursor: pointer;" 
+                                 data-bs-toggle="modal" 
+                                 data-bs-target="#imageModal" 
+                                 onclick="showImage(this.src, 'Devflow Digital IMS & POS')">
+                        </div>
+                        <div class="mb-2">
+                            <span class="badge bg-dark rounded-pill">SQL Server</span>
+                            <span class="badge bg-warning text-dark rounded-pill">Ledger Logic</span>
+                        </div>
+                        <h5 class="fw-bold">Devflow Digital IMS & POS</h5>
+                        <p class="small text-muted">Real-time inventory manager and point-of-sale platform running complex double-entry financial accounting tables.</p>
+                    </div>
+                    <div class="d-flex gap-2 pt-3 mt-auto">
+                        <a href="https://github.com" target="_blank" class="btn btn-sm btn-outline-dark rounded-pill flex-grow-1 d-flex align-items-center justify-content-center gap-1">
+                            <i class="bi bi-github"></i> GitHub
+                        </a>
+                        <button class="btn btn-sm btn-primary rounded-pill flex-grow-1" data-bs-toggle="modal" data-bs-target="#imsModal">Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 6: INTELLIGENT ERP ARCHITECTURE SUITE -->
+            <div class="col-md-4">
+                <div class="project-card h-100 p-3 bg-white shadow-sm rounded-4 border-0 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="project-img-box rounded-4 mb-3 position-relative overflow-hidden" style="height: 200px;">
+                            <img src="pics/ERPSuite.png" 
+                                 alt="Intelligent ERP Architecture" 
+                                 class="img-fluid w-100 h-100 object-fit-cover project-zoom" 
+                                 style="cursor: pointer;" 
+                                 data-bs-toggle="modal" 
+                                 data-bs-target="#imageModal" 
+                                 onclick="showImage(this.src, 'Intelligent ERP Suite')">
+                        </div>
+                        <div class="mb-2">
+                            <span class="badge bg-secondary rounded-pill">3-Tier Architecture</span>
+                            <span class="badge bg-info text-dark rounded-pill">Identity Security</span>
+                        </div>
+                        <h5 class="fw-bold">Intelligent ERP Suite</h5>
+                        <p class="small text-muted">Modular back-end structural pattern breaking Identity, core business logic, and reporting layers cleanly apart.</p>
+                    </div>
+                    <div class="d-flex gap-2 pt-3 mt-auto">
+                        <a href="https://github.com" target="_blank" class="btn btn-sm btn-outline-dark rounded-pill flex-grow-1 d-flex align-items-center justify-content-center gap-1">
+                            <i class="bi bi-github"></i> GitHub
+                        </a>
+                        <button class="btn btn-sm btn-primary rounded-pill flex-grow-1" data-bs-toggle="modal" data-bs-target="#erpModal">Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ROW 3: TARGETED UTILITIES, APIS & AI TOOLS -->
+        <div class="row g-4">
+            <div class="col-12 text-center">
+                <h4 class="fw-bold mb-3 text-dark position-relative d-inline-block pb-2">Targeted Utilities & AI Services</h4>
+                <div class="mx-auto bg-primary rounded" style="width: 50px; height: 3px; margin-top: -4px;"></div>
+            </div>
+            
+            <!-- CARD 7: INVOICE DATA EXTRACTOR -->
+            <div class="col-md-4">
+                <div class="project-card h-100 p-3 bg-white shadow-sm rounded-4 border-0 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="project-img-box rounded-4 mb-3 position-relative overflow-hidden" style="height: 200px;">
+                            <img src="pics/InvoiceDataExtractor.png" 
+                                 alt="Invoice Extractor" 
+                                 class="img-fluid w-100 h-100 object-fit-cover project-zoom" 
+                                 style="cursor: pointer;" 
+                                 data-bs-toggle="modal" 
+                                 data-bs-target="#imageModal" 
+                                 onclick="showImage(this.src, 'Invoice Data Extractor')">
+                        </div>
+                        <div class="mb-2">
+                            <span class="badge bg-success rounded-pill">OCR Engine</span>
+                            <span class="badge bg-warning text-dark rounded-pill">AI Automation</span>
+                        </div>
+                        <h5 class="fw-bold">Invoice Extractor Pipeline</h5>
+                        <p class="small text-muted">Automated system that reads data fields inside unstructured financial PDFs and formats them directly for database ingestion.</p>
+                    </div>
+                    <div class="d-flex gap-2 pt-3 mt-auto">
+                        <a href="https://github.com" target="_blank" class="btn btn-sm btn-outline-dark rounded-pill flex-grow-1 d-flex align-items-center justify-content-center gap-1">
+                            <i class="bi bi-github"></i> GitHub
+                        </a>
+                        <button class="btn btn-sm btn-primary rounded-pill flex-grow-1" data-bs-toggle="modal" data-bs-target="#extractorModal">Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 8: SECURE SQL ASSISTANT (NL2SQL) -->
+            <div class="col-md-4">
+                <div class="project-card h-100 p-3 bg-white shadow-sm rounded-4 border-0 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="project-img-box rounded-4 mb-3 position-relative overflow-hidden" style="height: 200px;">
+                            <img src="pics/AIChatBotProject.png" 
+                                 alt="AI Chatbot for SQL" 
+                                 class="img-fluid w-100 h-100 object-fit-cover project-zoom" 
+                                 style="cursor: pointer;" 
+                                 data-bs-toggle="modal" 
+                                 data-bs-target="#imageModal" 
                                  onclick="showImage(this.src, 'AI Chatbot for SQL')">
                         </div>
                         <div class="mb-2">
-                            <span class="badge bg-primary">NL2SQL</span>
+                            <span class="badge bg-primary rounded-pill">LLM Integration</span>
+                            <span class="badge bg-danger rounded-pill">Secure NL2SQL</span>
                         </div>
-                        <h5 class="fw-bold">AI Chatbot for SQL</h5>
-                        <p class="small text-muted">A secure "Natural Language to SQL" translator...</p>
-                        <a href="#" class="btn btn-sm btn-outline-primary rounded-pill">Security Flow</a>
+                        <h5 class="fw-bold">Secure SQL Assistant</h5>
+                        <p class="small text-muted">Natural language proxy parsing conversational questions into relational queries while strictly guarding schema structure.</p>
+                    </div>
+                    <div class="d-flex gap-2 pt-3 mt-auto">
+                        <a href="https://github.com" target="_blank" class="btn btn-sm btn-outline-dark rounded-pill flex-grow-1 d-flex align-items-center justify-content-center gap-1">
+                            <i class="bi bi-github"></i> GitHub
+                        </a>
+                        <button class="btn btn-sm btn-primary rounded-pill flex-grow-1" data-bs-toggle="modal" data-bs-target="#sqlModal">Details</button>
                     </div>
                 </div>
+            </div>
 
+            <!-- CARD 9: SMART CSV CATEGORIZER -->
+            <div class="col-md-4">
+                <div class="project-card h-100 p-3 bg-white shadow-sm rounded-4 border-0 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="project-img-box rounded-4 mb-3 position-relative overflow-hidden" style="height: 200px;">
+                            <img src="pics/CSVAIProject.png" 
+                                 alt="Smart CSV Categorizer" 
+                                 class="img-fluid w-100 h-100 object-fit-cover project-zoom" 
+                                 style="cursor: pointer;" 
+                                 data-bs-toggle="modal" 
+                                 data-bs-target="#imageModal" 
+                                 onclick="showImage(this.src, 'Smart CSV Categorizer')">
+                        </div>
+                        <div class="mb-2">
+                            <span class="badge bg-info text-dark rounded-pill">ML.NET Engine</span>
+                            <span class="badge bg-secondary rounded-pill">C# Intelligence</span>
+                        </div>
+                        <h5 class="fw-bold">Smart CSV Categorizer</h5>
+                        <p class="small text-muted">Local ML classification module grouping massive dataset logs automatically by interpreting contextual string labels.</p>
+                    </div>
+                    <div class="d-flex gap-2 pt-3 mt-auto">
+                        <a href="https://github.com" target="_blank" class="btn btn-sm btn-outline-dark rounded-pill flex-grow-1 d-flex align-items-center justify-content-center gap-1">
+                            <i class="bi bi-github"></i> GitHub
+                        </a>
+                        <button class="btn btn-sm btn-primary rounded-pill flex-grow-1" data-bs-toggle="modal" data-bs-target="#csvModal">Details</button>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<!-- ========================================== -->
+<!-- PROJECT DETAIL CAROUSEL MODALS             -->
+<!-- ========================================== -->
+<!-- Note: Paste this block at the bottom of your HTML body before closing tags. Include one modal for each card. Below is an example framework template for your new builds (Devflow E-Com & IMS). Duplicate and change IDs matching the targets above. -->
+
+<!-- EXAMPLE: DEVFLOW ECOMMERCE MULTI-IMAGE MODAL -->
+<div class="modal fade" id="ecommerceModal" tabindex="-1" aria-labelledby="ecommerceModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content rounded-4 border-0 shadow">
+            <div class="modal-header border-0 bg-dark text-white rounded-top-4 py-3">
+                <h5 class="modal-title fw-bold" id="ecommerceModalLabel">Devflow Digital E-Commerce Portfolio</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+                <!-- Inner Slider Component -->
+                <div id="carouselEcommerce" class="carousel slide mb-4 rounded-3 overflow-hidden bg-light shadow-sm" data-bs-ride="carousel">
+                    <div class="carousel-inner" style="max-height: 400px;">
+                        <div class="carousel-item active">
+                            <img src="pics/DevflowEcommerce.png" class="d-block w-100 h-100 object-fit-contain" alt="Dashboard Screen">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="pics/DevflowEcommerce_Checkout.png" class="d-block w-100 h-100 object-fit-contain" alt="Checkout Interface">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="pics/DevflowEcommerce_VendorView.png" class="d-block w-100 h-100 object-fit-contain" alt="Vendor Splitting Engine">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselEcommerce" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselEcommerce" data-bs-slide="next">
+                        <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+                <!-- Deep Technical Specifications (Bottom Information Layout) -->
+                <div class="project-technical-details">
+                    <h6 class="fw-bold text-primary mb-2"><i class="bi bi-cpu-fill me-2"></i>Technical Implementation Details</h6>
+                    <p class="text-muted small">An enterprise architecture supporting isolated multi-tenant schemas. Built to withstand high-volume storefront queries while minimizing overall state overhead on client machines.</p>
+                    
+                    <div class="row g-3 mt-1">
+                        <div class="col-md-6">
+                            <div class="bg-light p-2.5 rounded-3 border-start border-primary border-3">
+                                <span class="fw-bold d-block small">Core Capabilities:</span>
+                                <span class="text-muted small text-xs">- Cross-Vendor inventory synchronization.<br>- Encrypted checkout workflow pipelines.<br>- Integrated dynamic coupon discount triggers.</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="bg-light p-2.5 rounded-3 border-start border-success border-3">
+                                <span class="fw-bold d-block small">Stack Ecosystem Used:</span>
+                                <span class="text-muted small text-xs">ASP.NET Core MVC, React components, SQL Server Entity Framework Core, Bootstrap layout layers.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+
+
 
     <section id="services" class="py-5">
         <div class="container">
@@ -567,47 +944,183 @@
     </section>
 
 
+    <section id="architecture" class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="badge rounded-pill px-4 py-2 mb-2" style="background: white; color: var(--accent-blue); border: 1px solid var(--accent-blue)">HOW I DESIGN</span>
+            <h2 class="fw-bold">System Architecture & Engineering Standards</h2>
+            <p class="text-muted mx-auto" style="max-width: 600px;">A transparent breakdown of my design patterns, structural database philosophies, and decoupled backend strategies.</p>
+        </div>
+
+        <div class="d-flex justify-content-center mb-4">
+            <div class="nav nav-pills architecture-tab-nav" id="archTab" role="tablist">
+                <button class="nav-link active" id="pattern-tab" data-bs-toggle="tab" data-bs-target="#pattern-pane" type="button" role="tab"><i class="fa-solid fa-layer-group me-2"></i>Multi-Tier Patterns</button>
+                <button class="nav-link" id="schema-tab" data-bs-toggle="tab" data-bs-target="#schema-pane" type="button" role="tab"><i class="fa-solid fa-database me-2"></i>Schema Integrity</button>
+                <button class="nav-link" id="api-tab" data-bs-toggle="tab" data-bs-target="#api-pane" type="button" role="tab"><i class="fa-solid fa-server me-2"></i>API & Ledger Safety</button>
+            </div>
+        </div>
+
+        <div class="tab-content text-dark" id="archTabContent">
+            
+            <div class="tab-pane fade show active" id="pattern-pane" role="tabpanel" tabindex="0">
+                <div class="card p-4 p-md-5 arch-card border-0">
+                    <div class="row align-items-center g-4">
+                        <div class="col-lg-6">
+                            <h3 class="fw-bold mb-3">Decoupled Multi-Tier Architecture</h3>
+                            <p class="text-muted">I rigorously split responsibilities across independent boundaries to insulate the client user interface completely away from physical persistence engines, accelerating scaling speeds and preventing cross-layer bugs.</p>
+                            
+                            <div class="d-flex align-items-start mb-4">
+                                <div class="arch-step-badge me-3 mt-1">1</div>
+                                <div>
+                                    <h5 class="fw-bold mb-1">Presentation & Application Service Boundary</h5>
+                                    <p class="small text-muted mb-0">React.js Single Page interfaces communicate exclusively via secure JSON payloads targeted at isolated RESTful controller endpoints using DTO configurations.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex align-items-start mb-4">
+                                <div class="arch-step-badge me-3 mt-1">2</div>
+                                <div>
+                                    <h5 class="fw-bold mb-1">Domain Logic & Framework Abstractions</h5>
+                                    <p class="small text-muted mb-0">Core software validations, workflows, and operations execute purely in C# .NET domain contexts without knowing anything about server setups.</p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-start">
+                                <div class="arch-step-badge me-3 mt-1">3</div>
+                                <div>
+                                    <h5 class="fw-bold mb-1">Infrastructure Data Management Layer</h5>
+                                    <p class="small text-muted mb-0">Entity Framework Core processes mappings efficiently, driving secure data streaming safely into optimized T-SQL layouts.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm border border-light">
+                                <p class="small text-uppercase fw-bold text-muted tracking-wider text-center mb-4">Data Request Lifecycle Routing</p>
+                                <div class="text-center p-3 mb-3 rounded-3 bg-light border fw-semibold small text-primary"><i class="fa-brands fa-react me-2"></i>Client Interface View Layer</div>
+                                <div class="text-center p-2 mb-3 mx-auto" style="width:20px; color:var(--accent-blue)"><i class="fa-solid fa-arrow-down-long"></i></div>
+                                <div class="text-center p-3 mb-3 rounded-3 bg-light border fw-semibold small text-dark"><i class="fa-solid fa-gears me-2"></i>C# Application Middleware & DTO Rules</div>
+                                <div class="text-center p-2 mb-3 mx-auto" style="width:20px; color:var(--accent-blue)"><i class="fa-solid fa-arrow-down-long"></i></div>
+                                <div class="text-center p-3 mb-3 rounded-3 bg-light border fw-semibold small text-secondary"><i class="fa-solid fa-code-branch me-2"></i>Domain Entities & Linq Data Mappers</div>
+                                <div class="text-center p-2 mb-3 mx-auto" style="width:20px; color:var(--accent-blue)"><i class="fa-solid fa-arrow-down-long"></i></div>
+                                <div class="text-center p-3 rounded-3 bg-dark text-white fw-semibold small"><i class="fa-solid fa-server me-2"></i>Relational SQL Server Execution Engine</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="schema-pane" role="tabpanel" tabindex="0">
+                <div class="card p-4 p-md-5 arch-card border-0">
+                    <div class="row g-4">
+                        <div class="col-lg-5">
+                            <h3 class="fw-bold mb-3">Relational DB Guardrails & Audit Columns</h3>
+                            <p class="text-muted">Enterprise software setups lose value instantly without precise trace history and geographic precision. I enforce absolute schema integrity through standardized internal tracking models across all operational platforms.</p>
+                            <ul class="text-muted small ps-3">
+                                <li class="mb-2"><strong>Hierarchical Geography Layouts:</strong> Strict dependency design placing a required structural <code>States</code> layer directly between <code>City</code> and <code>Country</code> references to prevent broken reporting aggregates.</li>
+                                <li><strong>Standardized Table Metadata:</strong> Global trace properties built natively inside each business entity table configuration for strict point-in-time state checks.</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="table-responsive schema-table">
+                                <table class="table table-hover align-middle mb-0 text-sm">
+                                    <thead>
+                                        <tr>
+                                            <th class="p-3">Required Core Columns</th>
+                                            <th class="p-3">Data Variable Types</th>
+                                            <th class="p-3">Architectural Functionality</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="p-3 fw-bold text-dark">CreatedBy</td>
+                                            <td class="p-3"><span class="code-badge">nvarchar(100)</span></td>
+                                            <td class="p-3 text-muted small">Tracks identity contexts for strict compliance logs.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 fw-bold text-dark">CreatedAt</td>
+                                            <td class="p-3"><span class="code-badge">datetime2</span></td>
+                                            <td class="p-3 text-muted small">Global UTC record timestamp tracking database entries.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 fw-bold text-dark">Status</td>
+                                            <td class="p-3"><span class="code-badge">int / tinyint</span></td>
+                                            <td class="p-3 text-muted small">Enables safe soft-delete logic and tracking states.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="api-pane" role="tabpanel" tabindex="0">
+                <div class="card p-4 p-md-5 arch-card border-0">
+                    <div class="row g-4 align-items-center">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-light rounded-4 border">
+                                <div class="d-flex align-items-center gap-3 mb-3">
+                                    <div class="fs-2 text-success"><i class="fa-solid fa-shield-halved"></i></div>
+                                    <h5 class="fw-bold mb-0 text-dark">High-Concurrency Safety</h5>
+                                </div>
+                                <p class="small text-muted mb-0">Using transactional isolation rules and fine-tuned indexing strategies, backends handle immense data streaming volumes across multi-branch financial accounting channels without risking locked pipelines or data mutation errors.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-light rounded-4 border">
+                                <div class="d-flex align-items-center gap-3 mb-3">
+                                    <div class="fs-2 text-danger"><i class="fa-solid fa-user-lock"></i></div>
+                                    <h5 class="fw-bold mb-0 text-dark">Identity Tracking & Logs</h5>
+                                </div>
+                                <p class="small text-muted mb-0">Token checking models secure system calls end-to-end, writing clear execution metadata across transactional pathways so financial or corporate auditors can verify records down to the individual operator scale.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
 
     <section id="social" class="social-container text-center">
         <div class="container">
             <h2 class="fw-bold mb-4">Let's Build Something Great</h2>
             <div class="d-flex justify-content-center flex-wrap">
-                <a href="https://www.fiverr.com/users/anamarain/portfolio" class="social-item fiverr-item">
+                <a href="https://www.fiverr.com/users/anamarain/portfolio" target="_blank" class="social-item fiverr-item">
                     <div class="social-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
                     <span class="social-label">Fiverr</span>
                 </a>
 
-                <a href="https://www.upwork.com/freelancers/~014d4a76c1ff4a64ab" class="social-item upwork-item">
+                <a href="https://www.upwork.com/freelancers/~014d4a76c1ff4a64ab" target="_blank" class="social-item upwork-item">
                     <div class="social-icon"><i class="fa-brands fa-upwork"></i></div>
                     <span class="social-label">Upwork</span>
                 </a>
 
-                <a href="https://www.linkedin.com/in/anam-arain-07/" class="social-item li-item">
+                <a href="https://www.linkedin.com/in/anam-arain-07/" target="_blank" class="social-item li-item">
                     <div class="social-icon"><i class="fa-brands fa-linkedin-in"></i></div>
                     <span class="social-label">LinkedIn</span>
                 </a>
 
-                <a href="https://github.com/AnamFarooque" class="social-item">
+                <a href="https://github.com/AnamFarooque" target="_blank" class="social-item">
                     <div class="social-icon"><i class="fa-brands fa-github"></i></div>
                     <span class="social-label">GitHub</span>
                 </a>
 
-                <a href="https://www.youtube.com/channel/UCeibpbTVfBKZViKB4qfxLwA" class="social-item yt-item">
+                <a href="https://www.youtube.com/channel/UCeibpbTVfBKZViKB4qfxLwA" target="_blank" class="social-item yt-item">
                     <div class="social-icon"><i class="fa-brands fa-youtube"></i></div>
                     <span class="social-label">YouTube</span>
                 </a>
 
-                <a href="https://www.instagram.com/exerovisionai/" class="social-item ig-item">
+                <a href="https://www.instagram.com/exerovisionai/" target="_blank" class="social-item ig-item">
                     <div class="social-icon"><i class="fa-brands fa-instagram"></i></div>
                     <span class="social-label">Instagram</span>
                 </a>
             </div>
 
             <p class="mt-5 text-muted small">© 2025 Anam Farooque | Hyderabad, Pakistan | PEC Registered</p>
-
         </div>
     </section>
-
 
     <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -622,7 +1135,6 @@
             </div>
         </div>
     </div>
-
 
     <div class="modal fade" id="emailModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -651,7 +1163,7 @@
                             <label class="small fw-bold text-muted mb-1">MESSAGE</label>
                             <textarea name="message" class="form-control rounded-3" rows="4" placeholder="How can I help you?" required></textarea>
                         </div>
-                        <button type="submit" id="submitBtn" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm" style="background-color: var(--accent-blue); border: none;">
+                        <button type="submit" id="submitBtn" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">
                             <span id="btnText"><i class="fa-solid fa-paper-plane me-2"></i>Send Email</span>
                             <span id="btnSpinner" class="spinner-border spinner-border-sm d-none"></span>
                         </button>
@@ -661,6 +1173,34 @@
         </div>
     </div>
 
+    <!-- Dynamic Capabilities Detail Modal -->
+    <div class="modal fade" id="solutionModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md p-3">
+            <div class="modal-content border-0 rounded-4 shadow-lg" style="background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px);">
+                <div class="modal-header border-0 pb-0 justify-content-end">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center pt-0 px-4 pb-4">
+                    <!-- Dynamic Icon Slot -->
+                    <div id="solModalIconBox" class="fs-1 mb-3"></div>
+                    
+                    <!-- Dynamic Title -->
+                    <h3 id="solModalTitle" class="fw-bold text-dark h4 mb-3"></h3>
+                    
+                    <!-- Dynamic Badges -->
+                    <div id="solModalBadges" class="mb-4"></div>
+                    
+                    <!-- Dynamic Long Text Description -->
+                    <p id="solModalDetails" class="text-muted small lh-lg text-start bg-light p-3 rounded-3 border-start border-3 border-info"></p>
+                    
+                    <!-- Close CTA -->
+                    <button type="button" class="btn btn-primary rounded-pill w-100 mt-3 py-2 fw-bold" data-bs-dismiss="modal">Got It, Thanks!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
         function createSnowflake() {
@@ -669,18 +1209,15 @@
             snowflake.innerHTML = shapes[Math.floor(Math.random() * shapes.length)];
             snowflake.classList.add('snowflake');
 
-            // Randomize properties for "Prominent" look
             snowflake.style.left = Math.random() * 100 + 'vw';
-            snowflake.style.animationDuration = Math.random() * 3 + 4 + 's'; // Slower, more visible fall
-            snowflake.style.opacity = Math.random() * 0.7 + 0.3; // Minimum 30% opacity
-            snowflake.style.fontSize = Math.random() * 15 + 15 + 'px'; // Larger flakes (15px-30px)
+            snowflake.style.animationDuration = Math.random() * 3 + 4 + 's'; 
+            snowflake.style.opacity = Math.random() * 0.7 + 0.3; 
+            snowflake.style.fontSize = Math.random() * 15 + 15 + 'px'; 
 
             document.body.appendChild(snowflake);
-
             setTimeout(() => { snowflake.remove(); }, 6000);
         }
 
-        // Faster interval (100ms) makes the snow much more prominent
         setInterval(createSnowflake, 100);
 
         function showImage(src, title) {
@@ -697,7 +1234,6 @@
         contactForm.addEventListener('submit', async function (e) {
             e.preventDefault();
 
-            // Show Loading State
             btnText.classList.add('d-none');
             btnSpinner.classList.remove('d-none');
             submitBtn.disabled = true;
@@ -712,17 +1248,14 @@
                 });
 
                 if (response.ok) {
-                    // Hide Form, Show Success
                     contactForm.classList.add('d-none');
                     responseMsg.classList.remove('d-none');
 
-                    // Auto-close modal after 2.5 seconds
                     setTimeout(() => {
                         const modalElement = document.getElementById('emailModal');
                         const modalInstance = bootstrap.Modal.getInstance(modalElement);
                         modalInstance.hide();
 
-                        // Reset for next time
                         setTimeout(() => {
                             contactForm.reset();
                             contactForm.classList.remove('d-none');
@@ -740,7 +1273,39 @@
                 alert('Could not connect to the server.');
             }
         });
+
+        function openSolutionModal(cardElement) {
+    // Extract metadata strings from clicked HTML element
+    const title = cardElement.getAttribute('data-title');
+    const iconClass = cardElement.getAttribute('data-icon');
+    const iconColor = cardElement.getAttribute('data-icon-color');
+    const rawBadges = cardElement.getAttribute('data-badges');
+    const longDetails = cardElement.getAttribute('data-details');
+
+    // Mount dynamic elements into Modal DOM target tags
+    document.getElementById('solModalTitle').innerText = title;
+    document.getElementById('solModalDetails').innerText = longDetails;
+    document.getElementById('solModalIconBox').className = `fs-1 mb-3 ${iconColor}`;
+    document.getElementById('solModalIconBox').innerHTML = `<i class="fa-solid ${iconClass}"></i>`;
+
+    // Process comma-separated tech stack array values into HTML components
+    const badgeContainer = document.getElementById('solModalBadges');
+    badgeContainer.innerHTML = ''; // Reset container clear 
+    
+    if (rawBadges) {
+        const badgeArray = rawBadges.split(',');
+        badgeArray.forEach(techStr => {
+            const span = document.createElement('span');
+            span.className = 'badge bg-dark-subtle text-dark m-1 px-3 py-2 rounded-pill fw-semibold small';
+            span.innerText = techStr.trim();
+            badgeContainer.appendChild(span);
+        });
+    }
+
+    // Programmatically trigger Bootstrap Modal element instance
+    const targetModal = new bootstrap.Modal(document.getElementById('solutionModal'));
+    targetModal.show();
+}
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

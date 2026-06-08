@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Space | Social Links</title>
+    <title>My Space | Portfolio & Links</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
         body {
             background: url('background.avif') no-repeat center center fixed;
             background-size: cover;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'Inter', sans-serif;
+            padding: 40px 20px;
         }
 
         /* --- TOP LEFT NAME STYLE --- */
@@ -38,7 +39,7 @@
         .top-left-name span {
             width: 8px;
             height: 8px;
-            background: #00ffd5; /* Accent dot */
+            background: #00ffd5; 
             border-radius: 50%;
             display: inline-block;
             box-shadow: 0 0 10px #00ffd5;
@@ -50,12 +51,13 @@
             -webkit-backdrop-filter: blur(18px);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 30px;
-            padding: 40px 20px;
+            padding: 40px 25px;
             text-align: center;
             width: 100%;
             max-width: 550px;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
             animation: float 6s ease-in-out infinite;
+            transition: all 0.3s ease-in-out;
         }
 
         @keyframes float {
@@ -82,10 +84,77 @@
         p.subtitle {
             color: rgba(255, 255, 255, 0.7);
             font-size: 0.9rem;
-            margin-bottom: 35px;
+            margin-bottom: 20px;
         }
 
-        /* Horizontal Row Setup */
+        .status-badge {
+            background: rgba(0, 255, 213, 0.1);
+            border: 1px solid rgba(0, 255, 213, 0.3);
+            color: #00ffd5;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 25px;
+        }
+        .status-badge .dot {
+            width: 6px;
+            height: 6px;
+            background: #00ffd5;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #00ffd5;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 0.4; }
+            50% { opacity: 1; }
+            100% { opacity: 0.4; }
+        }
+
+        /* --- TAB NAVIGATION --- */
+        .nav-tabs-custom {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 5px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.6);
+            padding: 8px 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+        .tab-btn.active, .tab-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+        }
+        .tab-content-panel {
+            display: none;
+        }
+        .tab-content-panel.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Icon Group Matrix */
         .icon-group {
             display: flex;
             justify-content: center;
@@ -97,10 +166,9 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 65px; /* Keeps everything aligned */
+            width: 65px;
         }
 
-        /* --- LIGHTER BEFORE HOVER --- */
         .icon-link {
             width: 50px;
             height: 50px;
@@ -126,19 +194,18 @@
             transition: color 0.3s ease;
         }
 
-        /* --- BRIGHT ON HOVER --- */
         .icon-link:hover {
             transform: translateY(-8px) scale(1.15);
-            color: #ffffff; /* Bright white icon on hover */
+            color: #ffffff;
             box-shadow: 0 10px 20px rgba(0,0,0,0.55);
             border-color: rgba(255, 255, 255, 0.85);
         }
 
         .icon-wrapper:hover .icon-label {
-            color: rgba(255, 255, 255, 1); /* Label brightens up too */
+            color: rgba(255, 255, 255, 1);
         }
 
-       /* --- VISIBLE COLORS BEFORE HOVER (Increased Opacity to 0.55) --- */
+        /* Brands Backgrounds */
         .fb { background: rgba(24, 119, 242, 0.95); }
         .ig { background: rgba(228, 64, 95, 0.95); }
         .pf { background: rgba(0, 210, 255, 0.95); }
@@ -148,7 +215,6 @@
         .gh { background: rgba(51, 51, 51, 0.95); }
         .go { background: rgba(234, 67, 53, 0.95); }
 
-        /* --- SOLID COLORS ON HOVER --- */
         .fb:hover { background: rgba(24, 119, 242, 1); }
         .ig:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
         .pf:hover { background: rgba(0, 210, 255, 1); }
@@ -157,10 +223,114 @@
         .up:hover { background: rgba(111, 218, 68, 1); }
         .gh:hover { background: rgba(51, 51, 51, 1); }
         .go:hover { background: rgba(234, 67, 53, 1); }
+
+        /* --- OPTIMIZED MINI SKILLS PANEL --- */
+        .skills-container {
+            max-height: 380px;
+            overflow-y: auto;
+            padding-right: 5px;
+            text-align: left;
+        }
+
+        /* Standard custom scrollbar */
+        .skills-container::-webkit-scrollbar {
+            width: 4px;
+        }
+        .skills-container::-webkit-scrollbar-thumb {
+            background: rgba(0, 255, 213, 0.3);
+            border-radius: 10px;
+        }
+
+        .skill-group-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 14px;
+            padding: 12px 14px;
+            margin-bottom: 12px;
+        }
+
+        .skill-group-title {
+            color: rgba(0, 255, 213, 0.9);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .skill-group-title i {
+            font-size: 0.8rem;
+        }
+
+        .micro-badges-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .micro-badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.7rem;
+            font-weight: 500;
+            padding: 3px 8px;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.2s ease;
+        }
+
+        .micro-badge:hover {
+            background: rgba(0, 255, 213, 0.1);
+            border-color: rgba(0, 255, 213, 0.3);
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        .micro-badge i {
+            font-size: 0.65rem;
+            color: rgba(0, 255, 213, 0.8);
+        }
+
+        /* --- ACTION FOOTER LINK --- */
+        .action-footer {
+            margin-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+        }
+        .btn-visit-portfolio {
+            background: linear-gradient(135deg, rgba(0, 255, 213, 0.15), rgba(0, 210, 255, 0.15));
+            border: 1px solid rgba(0, 255, 213, 0.4);
+            color: #00ffd5;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 10px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 255, 213, 0.1);
+        }
+        .btn-visit-portfolio:hover {
+            background: #00ffd5;
+            color: #140f2d;
+            border-color: #00ffd5;
+            box-shadow: 0 0 20px rgba(0, 255, 213, 0.4);
+            transform: translateY(-2px);
+        }
         
     </style>
 </head>
 <body>
+
 <div class="top-left-name">
     <span></span> ANAM FAROOQUE 
 </div>
@@ -170,51 +340,163 @@
     
     <h1>Welcome to My Space</h1>
     <p class="subtitle">Connect with me across the web</p>
+    
+    <div class="status-badge">
+        <span class="dot"></span> Shipping Full-Scale Web Solutions
+    </div>
 
-    <div class="icon-group">
-        <div class="icon-wrapper">
-            <a href="https://www.fiverr.com/users/anamarain/portfolio" class="icon-link fv" title="Hire me on Fiverr"><i class="fa-solid fa-bolt"></i></a>
-            <span class="icon-label">Fiverr</span>
-        </div>
+    <!-- TAB NAVIGATION -->
+    <div class="nav-tabs-custom">
+        <button class="tab-btn active" onclick="switchTab('links')">Social Profiles</button>
+        <button class="tab-btn" onclick="switchTab('skills')">Skills & Expertise</button>
+    </div>
 
-        <div class="icon-wrapper">
-            <a href="https://www.upwork.com/freelancers/~014d4a76c1ff4a64ab" class="icon-link up" title="Hire me on Upwork"><i class="fa-brands fa-upwork"></i></a>
-            <span class="icon-label">Upwork</span>
-        </div>
-        
-        <div class="icon-wrapper">
-            <a href="https://www.facebook.com/Anam.Arain07" class="icon-link fb" title="Visit my Facebook"><i class="fab fa-facebook-f"></i></a>
-            <span class="icon-label">FB</span>
-        </div>
+    <!-- TAB PANEL 1: LINKS GRID -->
+    <div id="links" class="tab-content-panel active">
+        <div class="icon-group">
+            <div class="icon-wrapper">
+                <a href="https://www.fiverr.com/users/anamarain/portfolio" class="icon-link fv" title="Hire me on Fiverr"><i class="fa-solid fa-bolt"></i></a>
+                <span class="icon-label">Fiverr</span>
+            </div>
 
-        <div class="icon-wrapper">
-            <a href="https://www.instagram.com/exerovisionai/" class="icon-link ig" title="Follow me on Instagram"><i class="fab fa-instagram"></i></a>
-            <span class="icon-label">Insta</span>
-        </div>
+            <div class="icon-wrapper">
+                <a href="https://www.upwork.com/freelancers/~014d4a76c1ff4a64ab" class="icon-link up" title="Hire me on Upwork"><i class="fa-solid fa-laptop-code"></i></a>
+                <span class="icon-label">Upwork</span>
+            </div>
+            
+            <div class="icon-wrapper">
+                <a href="https://www.facebook.com/Anam.Arain07" class="icon-link fb" title="Visit my Facebook"><i class="fab fa-facebook-f"></i></a>
+                <span class="icon-label">FB</span>
+            </div>
 
-        <div class="icon-wrapper">
-            <a href="Myportfolio.html" class="icon-link pf" title="View my Work"><i class="fas fa-briefcase"></i></a>
-            <span class="icon-label">Portfolio</span>
-        </div>
+            <div class="icon-wrapper">
+                <a href="https://www.instagram.com/exerovisionai/" class="icon-link ig" title="Follow me on Instagram"><i class="fab fa-instagram"></i></a>
+                <span class="icon-label">Insta</span>
+            </div>
 
-        <div class="icon-wrapper">
-            <a href="https://www.youtube.com/channel/UCeibpbTVfBKZViKB4qfxLwA" class="icon-link yt" title="Subscribe on YouTube"><i class="fab fa-youtube"></i></a>
-            <span class="icon-label">Youtube</span>
-        </div>
+            <div class="icon-wrapper">
+                <a href="Myportfolio.html" class="icon-link pf" title="View my Work"><i class="fas fa-briefcase"></i></a>
+                <span class="icon-label">Portfolio</span>
+            </div>
 
-        <div class="icon-wrapper">
-            <a href="https://github.com/AnamFarooque" class="icon-link gh" title="Check my Code"><i class="fab fa-github"></i></a>
-            <span class="icon-label">Git</span>
-        </div>
+            <div class="icon-wrapper">
+                <a href="https://www.youtube.com/channel/UCeibpbTVfBKZViKB4qfxLwA" class="icon-link yt" title="Subscribe on YouTube"><i class="fab fa-youtube"></i></a>
+                <span class="icon-label">Youtube</span>
+            </div>
 
-        <div class="icon-wrapper">
-            <a href="https://dotnerdsacademy.blogspot.com/" class="icon-link go" title="My Blogs"><i class="fab fa-blogger"></i></a>
-            <span class="icon-label">My Blog</span>
+            <div class="icon-wrapper">
+                <a href="https://github.com/AnamFarooque" class="icon-link gh" title="Check my Code"><i class="fab fa-github"></i></a>
+                <span class="icon-label">Git</span>
+            </div>
+
+            <div class="icon-wrapper">
+                <a href="https://dotnerdsacademy.blogspot.com/" class="icon-link go" title="My Blogs"><i class="fab fa-blogger"></i></a>
+                <span class="icon-label">My Blog</span>
+            </div>
         </div>
     </div>
+
+    <!-- TAB PANEL 2: OPTIMIZED TECH STACK MATRIX -->
+    <div id="skills" class="tab-content-panel">
+        <div class="skills-container">
+            
+            <!-- Core Languages -->
+            <div class="skill-group-box">
+                <div class="skill-group-title"><i class="fa-solid fa-terminal"></i> Core Languages</div>
+                <div class="micro-badges-wrapper">
+                    <div class="micro-badge"><i class="fa-solid fa-code"></i> C#</div>
+                    <div class="micro-badge"><i class="fa-solid fa-code-branch"></i> VB.NET</div>
+                    <div class="micro-badge"><i class="fa-brands fa-js"></i> JavaScript</div>
+                    <div class="micro-badge"><i class="fa-solid fa-scroll"></i> TypeScript</div>
+                </div>
+            </div>
+
+            <!-- Backend Ecosystem -->
+            <div class="skill-group-box">
+                <div class="skill-group-title"><i class="fa-solid fa-gears"></i> Backend Frameworks & Systems</div>
+                <div class="micro-badges-wrapper">
+                    <div class="micro-badge"><i class="fa-solid fa-cube"></i> .NET Core</div>
+                    <div class="micro-badge"><i class="fa-solid fa-cubes"></i> .NET Framework</div>
+                    <div class="micro-badge"><i class="fa-solid fa-layer-group"></i> ASP.NET MVC</div>
+                    <div class="micro-badge"><i class="fa-solid fa-window-restore"></i> Web Forms</div>
+                    <div class="micro-badge"><i class="fa-solid fa-circle-nodes"></i> RESTful APIs</div>
+                    <div class="micro-badge"><i class="fa-solid fa-network-wired"></i> Microservices</div>
+                    <div class="micro-badge"><i class="fa-solid fa-bolt-lightning"></i> Windows Services</div>
+                </div>
+            </div>
+
+            <!-- Frontend Architecture -->
+            <div class="skill-group-box">
+                <div class="skill-group-title"><i class="fa-solid fa-laptop-code"></i> Frontend Technologies</div>
+                <div class="micro-badges-wrapper">
+                    <div class="micro-badge"><i class="fa-brands fa-react"></i> React.js</div>
+                    <div class="micro-badge"><i class="fa-solid fa-circle-chevron-right"></i> Next.js</div>
+                    <div class="micro-badge"><i class="fa-brands fa-html5"></i> HTML5 / CSS3</div>
+                    <div class="micro-badge"><i class="fa-brands fa-bootstrap"></i> Bootstrap</div>
+                    <div class="micro-badge"><i class="fa-solid fa-bolt"></i> AJAX & jQuery</div>
+                    <div class="micro-badge"><i class="fa-solid fa-window-maximize"></i> WPF / WinForms / XAML</div>
+                </div>
+            </div>
+
+            <!-- Database & BI Reporting -->
+            <div class="skill-group-box">
+                <div class="skill-group-title"><i class="fa-solid fa-database"></i> Database & Intelligence</div>
+                <div class="micro-badges-wrapper">
+                    <div class="micro-badge"><i class="fa-solid fa-server"></i> SQL Server</div>
+                    <div class="micro-badge"><i class="fa-solid fa-font-awesome"></i> Entity Framework</div>
+                    <div class="micro-badge"><i class="fa-solid fa-file-code"></i> Stored Procedures</div>
+                    <div class="micro-badge"><i class="fa-solid fa-chart-simple"></i> SSRS / RDLC / SSIS</div>
+                    <div class="micro-badge"><i class="fa-solid fa-gem"></i> Crystal Reports</div>
+                    <div class="micro-badge"><i class="fa-solid fa-gauge-high"></i> Query Optimization & Data Modeling</div>
+                </div>
+            </div>
+
+            <!-- Architecture Patterns & Security -->
+            <div class="skill-group-box">
+                <div class="skill-group-title"><i class="fa-solid fa-shield-halved"></i> Patterns & Security</div>
+                <div class="micro-badges-wrapper">
+                    <div class="micro-badge"><i class="fa-solid fa-shield"></i> Clean Architecture</div>
+                    <div class="micro-badge"><i class="fa-solid fa-square-check"></i> SOLID Principles</div>
+                    <div class="micro-badge"><i class="fa-solid fa-diagram-project"></i> Repository & Unit of Work</div>
+                    <div class="micro-badge"><i class="fa-solid fa-key"></i> Authentication / Authorization</div>
+                    <div class="micro-badge"><i class="fa-solid fa-user-shield"></i> RBAC & PCI-DSS</div>
+                </div>
+            </div>
+
+            <!-- Cloud, DevOps & Tools -->
+            <div class="skill-group-box">
+                <div class="skill-group-title"><i class="fa-solid fa-cloud-arrow-up"></i> Cloud, DevOps & Dev Tools</div>
+                <div class="micro-badges-wrapper">
+                    <div class="micro-badge"><i class="fa-brands fa-aws"></i> AWS</div>
+                    <div class="micro-badge"><i class="fa-solid fa-cloud"></i> Azure</div>
+                    <div class="micro-badge"><i class="fa-brands fa-github"></i> Git / GitHub Actions</div>
+                    <div class="micro-badge"><i class="fa-solid fa-infinity"></i> CI/CD Pipelines</div>
+                    <div class="micro-badge"><i class="fa-solid fa-envelope-open-text"></i> Postman / SSMS</div>
+                    <div class="micro-badge"><i class="fa-brands fa-figma"></i> Figma / Jira</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- QUICK ACTIONS FOOTER -->
+    <div class="action-footer">
+        <a href="Myportfolio.html" target="_blank" class="btn-visit-portfolio">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit My Portfolio
+        </a>
+    </div>
+
 </div>
+
+<script>
+    function switchTab(tabId) {
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        event.currentTarget.classList.add('active');
+
+        document.querySelectorAll('.tab-content-panel').forEach(panel => panel.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+    }
+</script>
 
 </body>
 </html>
-
-
