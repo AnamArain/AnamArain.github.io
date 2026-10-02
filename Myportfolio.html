@@ -391,54 +391,78 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <div class="d-flex align-items-center">
-                <img src="1765391870410.jpg" alt="Anam" class="profile-pic me-3">
-                <a class="navbar-brand" href="#">Anam<span style="color:var(--accent-blue)">.Dev Studio</span></a>
-            </div>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="mainNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link fw-bold px-3" href="#home">Intro</a></li>
-                    <li class="nav-item"><a class="nav-link fw-bold px-3" href="#skills">Stack</a></li>
-                    <li class="nav-item"><a class="nav-link fw-bold px-3" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link fw-bold px-3" href="#projects">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link fw-bold px-3" href="#social">Connect</a></li>
-                    <li class="nav-item">
-                        <a class="btn btn-sm btn-primary rounded-pill px-4 fw-bold" href="#" data-bs-toggle="modal" data-bs-target="#emailModal">
-                            <i class="fa-regular fa-envelope me-1"></i>Email Me
-                        </a>
-                    </li>
-                </ul>
-            </div>
+<!-- =========================
+     NAVIGATION BAR
+========================= -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <div class="d-flex align-items-center">
+            <img src="1765391870410.jpg" alt="Anam" class="profile-pic me-3">
+            <a class="navbar-brand" href="#">Anam<span style="color:var(--accent-blue)">.Dev Studio</span></a>
         </div>
-    </nav>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-2">
+                <li class="nav-item"><a class="nav-link fw-bold px-3" href="#home">Intro</a></li>
+                <li class="nav-item"><a class="nav-link fw-bold px-3" href="#skills">Stack</a></li>
+                <li class="nav-item"><a class="nav-link fw-bold px-3" href="#architecture">Architecture</a></li>
+                <li class="nav-item"><a class="nav-link fw-bold px-3" href="#services">Services</a></li>
+                <li class="nav-item"><a class="nav-link fw-bold px-3" href="#projects">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link fw-bold px-3" href="#social">Connect</a></li>
+                
+                <!-- Resume/CV Quick Button in Navbar -->
+                <li class="nav-item ms-lg-2">
+                    <a class="btn btn-sm btn-outline-primary rounded-pill px-3 fw-bold" href="assests\ANAM_FAROOQUE_Resume.pdf" target="_blank" download>
+                        <i class="fa-solid fa-file-pdf me-1"></i>Resume
+                    </a>
+                </li>
+                
+                <!-- Contact Email Button -->
+                <li class="nav-item">
+                    <a class="btn btn-sm btn-primary rounded-pill px-4 fw-bold" href="#" data-bs-toggle="modal" data-bs-target="#emailModal">
+                        <i class="fa-regular fa-envelope me-1"></i>Email Me
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
 <!-- =========================
      HERO / INTRO SECTION
 ========================= -->
-<header id="home" class="hero" style="max-height: 70vh;">
-    <div class="container" >
+<header id="home" class="hero" style="min-height: 70vh; display: flex; align-items: center;">
+    <div class="container text-center py-5">
 
-        <span class="badge rounded-pill px-4 py-2 mb-3"
-              style="background: white; color: var(--accent-blue); border: 1px solid var(--accent-blue)">
+        <span class="badge rounded-pill px-4 py-2 mb-3" style="background: white; color: var(--accent-blue); border: 1px solid var(--accent-blue)">
             FULL STACK .NET DEVELOPER | SOFTWARE ENGINEER
         </span>
 
-        <h1>Anam Farooque</h1>
+        <h1 class="display-4 fw-bold mb-3">Anam Farooque</h1>
 
-        <h5>Enterprise Engineering • Digital Solutions • ERP • POS • APIs • Ecommerce • AI Solutions</h5>
+        <h5 class="fw-semibold mb-3 text-secondary">Enterprise Engineering • Digital Solutions • ERP • POS • APIs • Ecommerce • AI Solutions</h5>
 
-        <p class="lead text-muted mx-auto" style="max-width: 680px;">
-           Engineering modern enterprise solutions with .NET, intelligent automation, and clean architecture.
+        <p class="lead text-muted mx-auto mb-4" style="max-width: 680px;">
+            Engineering modern enterprise solutions with .NET, intelligent automation, and clean architecture.
         </p>
+
+       <!-- Hero Call to Action Buttons -->
+<div class="d-flex justify-content-center align-items-center gap-3 flex-wrap">
+    <a class="btn btn-primary rounded-pill px-4 py-2 fw-bold shadow-sm" href="#projects">
+        <i class="fa-solid fa-laptop-code me-2"></i>View Projects
+    </a>
+    <a class="btn btn-outline-primary rounded-pill px-4 py-2 fw-bold" href="#architecture">
+        <i class="fa-solid fa-diagram-project me-2"></i>Explore Systems
+    </a>
+    <a class="btn btn-outline-dark rounded-pill px-4 py-2 fw-bold" href="assests/ANAM_FAROOQUE_Resume.pdf" target="_blank" download>
+        <i class="fa-solid fa-download me-2"></i>Download Resume (PDF)
+    </a>
+</div>
 
     </div>
 </header>
-
    <!-- Solutions & Capabilities Section -->
     <section id="skills" class="py-5">
         <div class="container">
@@ -2264,7 +2288,7 @@
                 </a>
             </div>
 
-            <p class="mt-5 text-muted small">© 2025 Anam Farooque | Hyderabad, Pakistan | PEC Registered</p>
+            <p class="mt-5 text-muted small">© 2025 Anam Farooque | Pakistan | Saudia Arabia | PEC Registered</p>
         </div>
     </section>
 
