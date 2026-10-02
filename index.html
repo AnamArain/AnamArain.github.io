@@ -368,9 +368,166 @@
                 font-size: 0.55rem;
             }
         }
+
+        /* End............ */
+
+        /* =========================
+   HORIZONTAL ROCKET BUTTON
+========================= */
+
+.action-footer {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.rocket-btn {
+    position: relative;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    height: 70px;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* 1. RED NOSE CONE (Front / Right) */
+.rocket-btn .nose-cone {
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 35px solid #dc2626; /* Red Nose Pointing Right */
+    border-radius: 0 50% 50% 0;
+    z-index: 2;
+}
+
+/* 2. WHITE ROCKET BODY */
+.rocket-btn .rocket-body {
+    position: relative;
+    width: 100px;
+    height: 40px;
+    background: linear-gradient(to bottom, #f3f4f6, #ffffff, #e5e7eb); /* White metallic gloss */
+    border-radius: 8px 0 0 8px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0 10px;
+    z-index: 2;
+    box-shadow: inset 0 -3px 6px rgba(0,0,0,0.15), 0 8px 15px rgba(0,0,0,0.2);
+}
+
+/* Window/Porthole */
+.rocket-btn .porthole {
+    width: 14px;
+    height: 14px;
+    background: #38bdf8;
+    border: 2px solid #94a3b8;
+    border-radius: 50%;
+    box-shadow: inset 1px 1px 3px rgba(0,0,0,0.3);
+    flex-shrink: 0;
+}
+
+/* "LAUNCH" Text */
+.rocket-btn .launch-text {
+    color: #1e293b;
+    font-family: 'Arial Black', sans-serif;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    user-select: none;
+    white-space: nowrap;
+}
+
+/* 3. RED WINGS / FINS */
+.rocket-btn .fin {
+    position: absolute;
+    left: 20px;
+    width: 40px;
+    height: 22px;
+    background: #dc2626; /* Red Wings */
+    z-index: 1;
+}
+
+.rocket-btn .fin-top {
+    top: -6px;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 20%;
+    transform: skewX(-15deg);
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.rocket-btn .fin-bottom {
+    bottom: -6px;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 20%;
+    transform: skewX(15deg);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* 4. ENGINE NOZZLE */
+.rocket-btn .engine {
+    width: 8px;
+    height: 22px;
+    background: #475569;
+    border-radius: 4px 0 0 4px;
+    z-index: 2;
+}
+
+/* 5. THRUSTER FLAME (Left / Back) */
+.rocket-btn .flame {
+    width: 0px;
+    height: 16px;
+    background: linear-gradient(to left, #ffeb3b, #ff9800, #f44336);
+    border-radius: 90% 10% 10% 90% / 50% 50% 50% 50%;
+    margin-right: -2px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    filter: blur(1px);
+}
+
+/* =========================
+   HOVER & ACTIVE EFFECTS
+========================= */
+
+/* Launch forward to the right on hover */
+.rocket-btn:hover {
+    transform: translateX(12px) scale(1.05);
+}
+
+/* Activate thruster flames on hover */
+.rocket-btn:hover .flame {
+    width: 38px;
+    opacity: 1;
+    box-shadow: -10px 0 15px #ff9800, -20px 0 25px #f44336;
+    animation: flicker-horizontal 0.15s infinite alternate;
+}
+
+/* Glow effect on hover */
+.rocket-btn:hover .rocket-body {
+    box-shadow: inset 0 -3px 6px rgba(0,0,0,0.15), 0 12px 25px rgba(220, 38, 38, 0.3);
+}
+
+/* Click / Launch state */
+.rocket-btn:active {
+    transform: translateX(28px) scale(0.95);
+    transition: transform 0.1s ease;
+}
+
+@keyframes flicker-horizontal {
+    0% { transform: scaleY(0.9) scaleX(0.95); }
+    100% { transform: scaleY(1.1) scaleX(1.1); }
+}
         
+
+
     </style>
 </head>
+
+
+
+
 <body>
 
 <div class="top-left-name">
@@ -383,14 +540,14 @@
     <h1>Welcome to My Space</h1>
     <p class="subtitle">Connect with me across the web</p>
     
-    <div class="status-badge">
+    <!-- <div class="status-badge">
         <span class="dot"></span> Shipping Full-Scale Web Solutions
     </div>
 
     <div class="nav-tabs-custom">
         <button class="tab-btn active" onclick="switchTab('links')">Social Profiles</button>
         <button class="tab-btn" onclick="switchTab('skills')">Skills & Expertise</button>
-    </div>
+    </div> -->
 
     <div id="links" class="tab-content-panel active">
         <div class="icon-group">
@@ -436,7 +593,7 @@
         </div>
     </div>
 
-    <div id="skills" class="tab-content-panel">
+    <!-- <div id="skills" class="tab-content-panel">
         <div class="skills-container">
             
             <div class="skill-group-box">
@@ -510,24 +667,44 @@
             </div>
 
         </div>
-    </div>
+    </div>  -->
 
-    <div class="action-footer">
-        <a href="Myportfolio.html" target="_blank" class="btn-visit-portfolio">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit My Portfolio
-        </a>
-    </div>
+<div class="action-footer">
+    <a href="Myportfolio.html" target="_blank" class="rocket-btn" title="Visit My Portfolio">
+        <!-- Thruster Flame (Left / Back) -->
+        <span class="flame"></span>
+
+        <!-- Engine Nozzle -->
+        <span class="engine"></span>
+
+        <!-- Red Top Wing -->
+        <span class="fin fin-top"></span>
+
+        <!-- Main White Body -->
+        <span class="rocket-body">
+            <span class="porthole"></span>
+            <span class="launch-text">LAUNCH</span>
+        </span>
+
+        <!-- Red Bottom Wing -->
+        <span class="fin fin-bottom"></span>
+
+        <!-- Red Nose Cone (Front / Right) -->
+        <span class="nose-cone"></span>
+    </a>
+</div>
 
 </div>
 
-<script>
-    function switchTab(tabId) {
-        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-        event.currentTarget.classList.add('active');
 
-        document.querySelectorAll('.tab-content-panel').forEach(panel => panel.classList.remove('active'));
-        document.getElementById(tabId).classList.add('active');
-    }
+<script>
+    // function switchTab(tabId) {
+    //     document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    //     event.currentTarget.classList.add('active');
+
+    //     document.querySelectorAll('.tab-content-panel').forEach(panel => panel.classList.remove('active'));
+    //     document.getElementById(tabId).classList.add('active');
+    // }
 </script>
 
 </body>

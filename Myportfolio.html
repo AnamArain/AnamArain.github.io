@@ -347,6 +347,46 @@
     font-size: 0.85rem;
     border: 1px solid #e2e8f0;
 }
+
+/* Schema Thumbnail Hover Effects */
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.schema-img-wrapper {
+    overflow: hidden;
+}
+
+.schema-thumb {
+    max-height: 180px;
+    object-fit: cover;
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.schema-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 23, 42, 0.45);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 0.5rem;
+}
+
+.schema-img-wrapper:hover .schema-thumb {
+    transform: scale(1.03);
+}
+
+.schema-img-wrapper:hover .schema-overlay {
+    opacity: 1;
+}
+
+.backdrop-blur {
+    backdrop-filter: blur(8px);
+}
     </style>
 </head>
 <body>
@@ -377,21 +417,33 @@
         </div>
     </nav>
 
-    <header id="home" class="hero">
-        <div class="container">
-            <span class="badge rounded-pill px-4 py-2 mb-3" style="background: white; color: var(--accent-blue); border: 1px solid var(--accent-blue)">FULL STACK .NET DEVELOPER</span>
-            <h1>Anam Farooque</h1>
-            <p class="lead text-muted mx-auto" style="max-width: 600px;">
-                5+ years of experience building high-performance ERP systems and enterprise platforms with a passion for clean code and modern UI.
-            </p>
-        </div>
-    </header>
+<!-- =========================
+     HERO / INTRO SECTION
+========================= -->
+<header id="home" class="hero" style="max-height: 70vh;">
+    <div class="container" >
+
+        <span class="badge rounded-pill px-4 py-2 mb-3"
+              style="background: white; color: var(--accent-blue); border: 1px solid var(--accent-blue)">
+            FULL STACK .NET DEVELOPER | SOFTWARE ENGINEER
+        </span>
+
+        <h1>Anam Farooque</h1>
+
+        <h5>Enterprise Engineering • Digital Solutions • ERP • POS • APIs • Ecommerce • AI Solutions</h5>
+
+        <p class="lead text-muted mx-auto" style="max-width: 680px;">
+           Engineering modern enterprise solutions with .NET, intelligent automation, and clean architecture.
+        </p>
+
+    </div>
+</header>
 
    <!-- Solutions & Capabilities Section -->
     <section id="skills" class="py-5">
         <div class="container">
             <div class="text-center mb-5">
-                <span class="badge rounded-pill px-4 py-2 mb-2" style="background: white; color: var(--accent-blue); border: 1px solid var(--accent-blue)">WHAT I BUILD</span>
+                <span class="badge rounded-pill px-4 py-2 mb-2" style="background: rgb(19, 17, 17); color: var(--accent-blue); border: 1px solid var(--accent-blue)">WHAT I BUILD</span>
                 <h2 class="fw-bold">Solutions & Expertise</h2>
                 <p class="text-muted mx-auto" style="max-width: 600px;">Click on any capability below to explore how I transform complex logic into high-impact software realities.</p>
             </div>
@@ -1011,15 +1063,6 @@
 <!-- ========================================================= -->
 <!-- PROJECT DETAIL CAROUSEL MODALS                           -->
 <!-- ========================================================= -->
-<!--
-    Each project has its own Bootstrap modal.
-
-    Project 4 -> #posDashboardModal
-    Project 5 -> #posApiModal
-    Project 6 -> #ecommerceModal
-
-    Replace image filenames with your actual screenshots if needed.
--->
 
 
 <!-- ========================================================= -->
@@ -1859,135 +1902,301 @@
     </section>
 
 
-    <section id="architecture" class="py-5">
+
+<!-- SYSTEM ARCHITECTURE & ENGINEERING STANDARDS SECTION -->
+<section id="architecture" class="py-5">
     <div class="container">
+        <!-- Section Header -->
         <div class="text-center mb-5">
-            <span class="badge rounded-pill px-4 py-2 mb-2" style="background: white; color: var(--accent-blue); border: 1px solid var(--accent-blue)">HOW I DESIGN</span>
-            <h2 class="fw-bold">System Architecture & Engineering Standards</h2>
-            <p class="text-muted mx-auto" style="max-width: 600px;">A transparent breakdown of my design patterns, structural database philosophies, and decoupled backend strategies.</p>
+            <span class="badge rounded-pill px-4 py-2 mb-2" style="background: white; color: var(--accent-blue, #0d6efd); border: 1px solid var(--accent-blue, #0d6efd)">ENGINEERING STANDARDS</span>
+            <h2 class="fw-bold">Database Schemas & System Architecture</h2>
+            <p class="text-muted mx-auto" style="max-width: 650px;">A practical breakdown of production database designs, transactional T-SQL logic, decoupled ASP.NET Core pipelines, and API security guardrails.</p>
         </div>
 
+        <!-- Navigation Tabs -->
         <div class="d-flex justify-content-center mb-4">
-            <div class="nav nav-pills architecture-tab-nav" id="archTab" role="tablist">
-                <button class="nav-link active" id="pattern-tab" data-bs-toggle="tab" data-bs-target="#pattern-pane" type="button" role="tab"><i class="fa-solid fa-layer-group me-2"></i>Multi-Tier Patterns</button>
-                <button class="nav-link" id="schema-tab" data-bs-toggle="tab" data-bs-target="#schema-pane" type="button" role="tab"><i class="fa-solid fa-database me-2"></i>Schema Integrity</button>
-                <button class="nav-link" id="api-tab" data-bs-toggle="tab" data-bs-target="#api-pane" type="button" role="tab"><i class="fa-solid fa-server me-2"></i>API & Ledger Safety</button>
+            <div class="nav nav-pills architecture-tab-nav flex-wrap justify-content-center gap-2" id="archTab" role="tablist">
+                <button class="nav-link active" id="databases-tab" data-bs-toggle="tab" data-bs-target="#databases-pane" type="button" role="tab" aria-controls="databases-pane" aria-selected="true">
+                    <i class="fa-solid fa-diagram-project me-2"></i>Database Schemas
+                </button>
+                <button class="nav-link" id="pattern-tab" data-bs-toggle="tab" data-bs-target="#pattern-pane" type="button" role="tab" aria-controls="pattern-pane" aria-selected="false">
+                    <i class="fa-solid fa-layer-group me-2"></i>System Architecture
+                </button>
+                <button class="nav-link" id="procedure-tab" data-bs-toggle="tab" data-bs-target="#procedure-pane" type="button" role="tab" aria-controls="procedure-pane" aria-selected="false">
+                    <i class="fa-solid fa-code me-2"></i>T-SQL Logic & Stored Procs
+                </button>
+                <button class="nav-link" id="security-tab" data-bs-toggle="tab" data-bs-target="#security-pane" type="button" role="tab" aria-controls="security-pane" aria-selected="false">
+                    <i class="fa-solid fa-shield-halved me-2"></i>API & Security Pipeline
+                </button>
             </div>
         </div>
 
+        <!-- Tab Content Container -->
         <div class="tab-content text-dark" id="archTabContent">
             
-            <div class="tab-pane fade show active" id="pattern-pane" role="tabpanel" tabindex="0">
-                <div class="card p-4 p-md-5 arch-card border-0">
+            <!-- TAB 1: PRODUCTION DATABASE SCHEMAS -->
+            <div class="tab-pane fade show active" id="databases-pane" role="tabpanel" aria-labelledby="databases-tab" tabindex="0">
+                <div class="card p-4 p-md-5 arch-card border-0 shadow-sm rounded-4">
+                    <div class="mb-4">
+                        <h3 class="fw-bold mb-2">Relational Schemas & Domain Models</h3>
+                        <p class="text-muted">Production-tested database designs optimized for normalized storage, strict foreign key constraints, and fast read/write pathways. Click any diagram to open full view.</p>
+                    </div>
+
+                    <div class="row g-4">
+                        <!-- Database 1: E-Commerce -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm border h-100 d-flex flex-column">
+                                <div class="d-flex align-items-center justify-content-between mb-3">
+                                    <span class="badge bg-primary-subtle text-primary fw-semibold px-3 py-1 rounded-pill">E-Commerce</span>
+                                    <small class="text-muted font-monospace">SQL Server</small>
+                                </div>
+                                <h4 class="fw-bold h5 mb-2">SmartShop Multi-Vendor Engine</h4>
+                                <p class="small text-muted mb-3 flex-grow-1">Normalized catalog structure featuring hierarchical categories, multi-tier variant matrix, isolated vendor tenant separation, and structured order workflow states.</p>
+                                
+                                <!-- Clickable Diagram Container -->
+                                <div class="mb-3 rounded-3 bg-light border p-2 text-center position-relative schema-img-wrapper cursor-pointer" 
+                                     data-bs-toggle="modal" 
+                                     data-bs-target="#schemaModal" 
+                                     data-img-src="pics\Ecommerce-Schema.png" 
+                                     data-title="SmartShop Multi-Vendor E-Commerce Schema">
+                                    <img src="pics\Ecommerce-Schema.png" alt="SmartShop E-Commerce ERD Schema" class="img-fluid rounded border shadow-sm schema-thumb">
+                                    <div class="schema-overlay d-flex align-items-center justify-content-center">
+                                        <span class="btn btn-sm btn-dark rounded-pill px-3 shadow"><i class="fa-solid fa-magnifying-glass-plus me-2"></i>Expand Schema</span>
+                                    </div>
+                                </div>
+
+                                <div class="pt-2 border-top">
+                                    <ul class="list-unstyled mb-0 small text-muted">
+                                        <li class="mb-1"><i class="fa-solid fa-check text-success me-2"></i>Unified multi-vendor auth</li>
+                                        <li class="mb-1"><i class="fa-solid fa-check text-success me-2"></i>Cart to order state machine</li>
+                                        <li><i class="fa-solid fa-check text-success me-2"></i>Indexed SKU variant lookups</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Database 2: POS Ledger -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm border h-100 d-flex flex-column">
+                                <div class="d-flex align-items-center justify-content-between mb-3">
+                                    <span class="badge bg-success-subtle text-success fw-semibold px-3 py-1 rounded-pill">Point of Sale</span>
+                                    <small class="text-muted font-monospace">T-SQL / Stored Procs</small>
+                                </div>
+                                <h4 class="fw-bold h5 mb-2">Retail POS & Billing Ledger</h4>
+                                <p class="small text-muted mb-3 flex-grow-1">High-concurrency checkout schema supporting atomic sales transactions, split payment handling, customer loyalty tracking, and cashier shift reconciliation summaries.</p>
+                                
+                                <!-- Clickable Diagram Container -->
+                                <div class="mb-3 rounded-3 bg-light border p-2 text-center position-relative schema-img-wrapper cursor-pointer" 
+                                     data-bs-toggle="modal" 
+                                     data-bs-target="#schemaModal" 
+                                     data-img-src="pics\POS-Schema.png" 
+                                     data-title="Retail POS & Billing Ledger Schema">
+                                    <img src="pics\POS-Schema.png" alt="Retail POS Schema Diagram" class="img-fluid rounded border shadow-sm schema-thumb">
+                                    <div class="schema-overlay d-flex align-items-center justify-content-center">
+                                        <span class="btn btn-sm btn-dark rounded-pill px-3 shadow"><i class="fa-solid fa-magnifying-glass-plus me-2"></i>Expand Schema</span>
+                                    </div>
+                                </div>
+
+                                <div class="pt-2 border-top">
+                                    <ul class="list-unstyled mb-0 small text-muted">
+                                        <li class="mb-1"><i class="fa-solid fa-check text-success me-2"></i>ACID-compliant sales logs</li>
+                                        <li class="mb-1"><i class="fa-solid fa-check text-success me-2"></i>Daily register closing sessions</li>
+                                        <li><i class="fa-solid fa-check text-success me-2"></i>Fast barcode lookup indexing</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Database 3: IMS System -->
+                        <div class="col-lg-4 col-md-6 mx-auto">
+                            <div class="p-4 bg-white rounded-4 shadow-sm border h-100 d-flex flex-column">
+                                <div class="d-flex align-items-center justify-content-between mb-3">
+                                    <span class="badge bg-warning-subtle text-dark fw-semibold px-3 py-1 rounded-pill">Inventory (IMS)</span>
+                                    <small class="text-muted font-monospace">Multi-Branch</small>
+                                </div>
+                                <h4 class="fw-bold h5 mb-2">DevFlow Inventory System</h4>
+                                <p class="small text-muted mb-3 flex-grow-1">Multi-company, multi-branch stock ledger enforcing strict unit conversions, automated reorder thresholds, batch/serial tracking, and audit-ready stock adjustments.</p>
+                                
+                                <!-- Clickable Diagram Container -->
+                                <div class="mb-3 rounded-3 bg-light border p-2 text-center position-relative schema-img-wrapper cursor-pointer" 
+                                     data-bs-toggle="modal" 
+                                     data-bs-target="#schemaModal" 
+                                     data-img-src="pics\IMS-Schema.png" 
+                                     data-title="DevFlow IMS Multi-Branch Database Schema">
+                                    <img src="pics\IMS-Schema.png" alt="DevFlow Inventory Management Schema" class="img-fluid rounded border shadow-sm schema-thumb">
+                                    <div class="schema-overlay d-flex align-items-center justify-content-center">
+                                        <span class="btn btn-sm btn-dark rounded-pill px-3 shadow"><i class="fa-solid fa-magnifying-glass-plus me-2"></i>Expand Schema</span>
+                                    </div>
+                                </div>
+
+                                <div class="pt-2 border-top">
+                                    <ul class="list-unstyled mb-0 small text-muted">
+                                        <li class="mb-1"><i class="fa-solid fa-check text-success me-2"></i>Multi-branch inventory balance</li>
+                                        <li class="mb-1"><i class="fa-solid fa-check text-success me-2"></i>Custom unit conversion rules</li>
+                                        <li><i class="fa-solid fa-check text-success me-2"></i>Stock movement audit trails</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: SYSTEM ARCHITECTURE -->
+            <div class="tab-pane fade" id="pattern-pane" role="tabpanel" aria-labelledby="pattern-tab" tabindex="0">
+                <div class="card p-4 p-md-5 arch-card border-0 shadow-sm rounded-4">
                     <div class="row align-items-center g-4">
                         <div class="col-lg-6">
-                            <h3 class="fw-bold mb-3">Decoupled Multi-Tier Architecture</h3>
-                            <p class="text-muted">I rigorously split responsibilities across independent boundaries to insulate the client user interface completely away from physical persistence engines, accelerating scaling speeds and preventing cross-layer bugs.</p>
+                            <h3 class="fw-bold mb-3">Decoupled Full-Stack Data Pipeline</h3>
+                            <p class="text-muted">Strict segregation between presentation, business validation, and physical persistence layers keeps systems modular, testable, and highly performant.</p>
                             
                             <div class="d-flex align-items-start mb-4">
                                 <div class="arch-step-badge me-3 mt-1">1</div>
                                 <div>
-                                    <h5 class="fw-bold mb-1">Presentation & Application Service Boundary</h5>
-                                    <p class="small text-muted mb-0">React.js Single Page interfaces communicate exclusively via secure JSON payloads targeted at isolated RESTful controller endpoints using DTO configurations.</p>
+                                    <h5 class="fw-bold mb-1">Presentation Layer (Client State)</h5>
+                                    <p class="small text-muted mb-0">React.js client views communicate through asynchronous, typed HTTP requests, translating state changes cleanly without direct database dependency.</p>
                                 </div>
                             </div>
                             
                             <div class="d-flex align-items-start mb-4">
                                 <div class="arch-step-badge me-3 mt-1">2</div>
                                 <div>
-                                    <h5 class="fw-bold mb-1">Domain Logic & Framework Abstractions</h5>
-                                    <p class="small text-muted mb-0">Core software validations, workflows, and operations execute purely in C# .NET domain contexts without knowing anything about server setups.</p>
+                                    <h5 class="fw-bold mb-1">Application & Business Rules (.NET Core)</h5>
+                                    <p class="small text-muted mb-0">Isolated REST controllers process request DTOs, execute C# domain logic, and manage transaction scopes using strict interface abstractions.</p>
                                 </div>
                             </div>
 
                             <div class="d-flex align-items-start">
                                 <div class="arch-step-badge me-3 mt-1">3</div>
                                 <div>
-                                    <h5 class="fw-bold mb-1">Infrastructure Data Management Layer</h5>
-                                    <p class="small text-muted mb-0">Entity Framework Core processes mappings efficiently, driving secure data streaming safely into optimized T-SQL layouts.</p>
+                                    <h5 class="fw-bold mb-1">Relational Persistence Layer (SQL Server)</h5>
+                                    <p class="small text-muted mb-0">EF Core ORM mapped to T-SQL views and compiled stored procedures ensures minimal network payload overhead and atomic transactional writes.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <div class="p-4 bg-white rounded-4 shadow-sm border border-light">
-                                <p class="small text-uppercase fw-bold text-muted tracking-wider text-center mb-4">Data Request Lifecycle Routing</p>
-                                <div class="text-center p-3 mb-3 rounded-3 bg-light border fw-semibold small text-primary"><i class="fa-brands fa-react me-2"></i>Client Interface View Layer</div>
-                                <div class="text-center p-2 mb-3 mx-auto" style="width:20px; color:var(--accent-blue)"><i class="fa-solid fa-arrow-down-long"></i></div>
-                                <div class="text-center p-3 mb-3 rounded-3 bg-light border fw-semibold small text-dark"><i class="fa-solid fa-gears me-2"></i>C# Application Middleware & DTO Rules</div>
-                                <div class="text-center p-2 mb-3 mx-auto" style="width:20px; color:var(--accent-blue)"><i class="fa-solid fa-arrow-down-long"></i></div>
-                                <div class="text-center p-3 mb-3 rounded-3 bg-light border fw-semibold small text-secondary"><i class="fa-solid fa-code-branch me-2"></i>Domain Entities & Linq Data Mappers</div>
-                                <div class="text-center p-2 mb-3 mx-auto" style="width:20px; color:var(--accent-blue)"><i class="fa-solid fa-arrow-down-long"></i></div>
-                                <div class="text-center p-3 rounded-3 bg-dark text-white fw-semibold small"><i class="fa-solid fa-server me-2"></i>Relational SQL Server Execution Engine</div>
+                            <div class="p-4 bg-white rounded-4 shadow-sm border">
+                                <p class="small text-uppercase fw-bold text-muted tracking-wider text-center mb-4">Request & Transaction Lifecycle Flow</p>
+                                <div class="text-center p-3 mb-3 rounded-3 bg-light border fw-semibold small text-primary"><i class="fa-brands fa-react me-2"></i>React Client View & State Hydration</div>
+                                <div class="text-center p-2 mb-3 mx-auto" style="width:20px; color:var(--accent-blue, #0d6efd)"><i class="fa-solid fa-arrow-down-long"></i></div>
+                                <div class="text-center p-3 mb-3 rounded-3 bg-light border fw-semibold small text-dark"><i class="fa-solid fa-gears me-2"></i>ASP.NET Core Controllers & Fluent DTO Validators</div>
+                                <div class="text-center p-2 mb-3 mx-auto" style="width:20px; color:var(--accent-blue, #0d6efd)"><i class="fa-solid fa-arrow-down-long"></i></div>
+                                <div class="text-center p-3 mb-3 rounded-3 bg-light border fw-semibold small text-secondary"><i class="fa-solid fa-code-branch me-2"></i>C# Domain Services & EF Core / Repository Handlers</div>
+                                <div class="text-center p-2 mb-3 mx-auto" style="width:20px; color:var(--accent-blue, #0d6efd)"><i class="fa-solid fa-arrow-down-long"></i></div>
+                                <div class="text-center p-3 rounded-3 bg-dark text-white fw-semibold small"><i class="fa-solid fa-server me-2"></i>SQL Server Execution Engine & Stored Procedures</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="tab-pane fade" id="schema-pane" role="tabpanel" tabindex="0">
-                <div class="card p-4 p-md-5 arch-card border-0">
+            <!-- TAB 3: T-SQL STORED PROCEDURES & LOGIC -->
+            <div class="tab-pane fade" id="procedure-pane" role="tabpanel" aria-labelledby="procedure-tab" tabindex="0">
+                <div class="card p-4 p-md-5 arch-card border-0 shadow-sm rounded-4">
                     <div class="row g-4">
                         <div class="col-lg-5">
-                            <h3 class="fw-bold mb-3">Relational DB Guardrails & Audit Columns</h3>
-                            <p class="text-muted">Enterprise software setups lose value instantly without precise trace history and geographic precision. I enforce absolute schema integrity through standardized internal tracking models across all operational platforms.</p>
-                            <ul class="text-muted small ps-3">
-                                <li class="mb-2"><strong>Hierarchical Geography Layouts:</strong> Strict dependency design placing a required structural <code>States</code> layer directly between <code>City</code> and <code>Country</code> references to prevent broken reporting aggregates.</li>
-                                <li><strong>Standardized Table Metadata:</strong> Global trace properties built natively inside each business entity table configuration for strict point-in-time state checks.</li>
-                            </ul>
+                            <h3 class="fw-bold mb-3">T-SQL Stored Procedures & Business Logic</h3>
+                            <p class="text-muted">Pushing critical transactional calculations directly into SQL Server stored procedures prevents race conditions, reduces network latency, and guarantees strict ACID compliance.</p>
+                            
+                            <div class="mb-3">
+                                <h6 class="fw-bold text-dark mb-1"><i class="fa-solid fa-gears text-primary me-2"></i>Unit Conversion Matrix</h6>
+                                <p class="small text-muted mb-0">Dynamic conversion between base stock quantities (e.g., cartons, pieces, kilograms) using mathematical multipliers directly in database queries.</p>
+                            </div>
+                            <div class="mb-3">
+                                <h6 class="fw-bold text-dark mb-1"><i class="fa-solid fa-shield-cat text-danger me-2"></i>Soft-Delete & Audit Standards</h6>
+                                <p class="small text-muted mb-0">Preventing record deletion by enforcing <code>IsDeleted</code> flags, automatic <code>ModifiedAt</code> UTC updates, and <code>ModifiedBy</code> tracking columns.</p>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold text-dark mb-1"><i class="fa-solid fa-bolt text-warning me-2"></i>Query Optimization & Indexing</h6>
+                                <p class="small text-muted mb-0">Non-clustered indexes on foreign key lookups and composite keys for rapid join processing in high-concurrency reports.</p>
+                            </div>
                         </div>
+
                         <div class="col-lg-7">
-                            <div class="table-responsive schema-table">
-                                <table class="table table-hover align-middle mb-0 text-sm">
-                                    <thead>
-                                        <tr>
-                                            <th class="p-3">Required Core Columns</th>
-                                            <th class="p-3">Data Variable Types</th>
-                                            <th class="p-3">Architectural Functionality</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="p-3 fw-bold text-dark">CreatedBy</td>
-                                            <td class="p-3"><span class="code-badge">nvarchar(100)</span></td>
-                                            <td class="p-3 text-muted small">Tracks identity contexts for strict compliance logs.</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-3 fw-bold text-dark">CreatedAt</td>
-                                            <td class="p-3"><span class="code-badge">datetime2</span></td>
-                                            <td class="p-3 text-muted small">Global UTC record timestamp tracking database entries.</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-3 fw-bold text-dark">Status</td>
-                                            <td class="p-3"><span class="code-badge">int / tinyint</span></td>
-                                            <td class="p-3 text-muted small">Enables safe soft-delete logic and tracking states.</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div class="bg-dark rounded-4 p-3 text-white shadow-sm h-100 d-flex flex-column">
+                                <div class="d-flex align-items-center justify-content-between border-bottom border-secondary pb-2 mb-3">
+                                    <span class="small font-monospace text-warning"><i class="fa-solid fa-terminal me-2"></i>sp_ProcessBranchStockTransfer.sql</span>
+                                    <span class="badge bg-secondary font-monospace small">T-SQL Stored Proc</span>
+                                </div>
+                                <pre class="text-light font-monospace small mb-0 flex-grow-1 overflow-auto" style="max-height: 380px; line-height: 1.5;"><code><span class="text-info">CREATE PROCEDURE</span> [dbo].[sp_ProcessBranchStockTransfer]
+    <span class="text-warning">@SourceBranchId</span> <span class="text-primary">INT</span>,
+    <span class="text-warning">@TargetBranchId</span> <span class="text-primary">INT</span>,
+    <span class="text-warning">@ProductId</span> <span class="text-primary">INT</span>,
+    <span class="text-warning">@TransferQty</span> <span class="text-primary">DECIMAL</span>(18,2),
+    <span class="text-warning">@OperatorUser</span> <span class="text-primary">NVARCHAR</span>(100)
+<span class="text-info">AS</span>
+<span class="text-info">BEGIN</span>
+    <span class="text-info">SET NOCOUNT ON</span>;
+    <span class="text-info">BEGIN TRANSACTION</span>;
+    <span class="text-info">BEGIN TRY</span>
+        <span class="text-muted">-- Check source stock balance</span>
+        <span class="text-info">IF</span> (<span class="text-info">SELECT</span> CurrentStock <span class="text-info">FROM</span> BranchInventory 
+            <span class="text-info">WHERE</span> BranchId = <span class="text-warning">@SourceBranchId</span> <span class="text-info">AND</span> ProductId = <span class="text-warning">@ProductId</span>) < <span class="text-warning">@TransferQty</span>
+        <span class="text-info">BEGIN</span>
+            <span class="text-danger">RAISERROR</span>(<span class="text-warning">'Insufficient branch stock for transfer.'</span>, 16, 1);
+        <span class="text-info">END</span>
+
+        <span class="text-muted">-- Deduct from Source & Credit Target Branch</span>
+        <span class="text-info">UPDATE</span> BranchInventory 
+        <span class="text-info">SET</span> CurrentStock = CurrentStock - <span class="text-warning">@TransferQty</span>,
+            ModifiedAt = <span class="text-danger">GETUTCDATE()</span>, ModifiedBy = <span class="text-warning">@OperatorUser</span>
+        <span class="text-info">WHERE</span> BranchId = <span class="text-warning">@SourceBranchId</span> <span class="text-info">AND</span> ProductId = <span class="text-warning">@ProductId</span>;
+
+        <span class="text-info">UPDATE</span> BranchInventory 
+        <span class="text-info">SET</span> CurrentStock = CurrentStock + <span class="text-warning">@TransferQty</span>,
+            ModifiedAt = <span class="text-danger">GETUTCDATE()</span>, ModifiedBy = <span class="text-warning">@OperatorUser</span>
+        <span class="text-info">WHERE</span> BranchId = <span class="text-warning">@TargetBranchId</span> <span class="text-info">AND</span> ProductId = <span class="text-warning">@ProductId</span>;
+
+        <span class="text-info">COMMIT TRANSACTION</span>;
+    <span class="text-info">END TRY</span>
+    <span class="text-info">BEGIN CATCH</span>
+        <span class="text-info">ROLLBACK TRANSACTION</span>;
+        <span class="text-info">THROW</span>;
+    <span class="text-info">END CATCH</span>
+<span class="text-info">END</span>;</code></pre>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="tab-pane fade" id="api-pane" role="tabpanel" tabindex="0">
-                <div class="card p-4 p-md-5 arch-card border-0">
-                    <div class="row g-4 align-items-center">
-                        <div class="col-md-6">
-                            <div class="p-4 bg-light rounded-4 border">
+            <!-- TAB 4: API & SECURITY PIPELINE -->
+            <div class="tab-pane fade" id="security-pane" role="tabpanel" aria-labelledby="security-tab" tabindex="0">
+                <div class="card p-4 p-md-5 arch-card border-0 shadow-sm rounded-4">
+                    <div class="row g-4">
+                        <div class="col-lg-6">
+                            <div class="p-4 bg-white rounded-4 border h-100 d-flex flex-column">
                                 <div class="d-flex align-items-center gap-3 mb-3">
-                                    <div class="fs-2 text-success"><i class="fa-solid fa-shield-halved"></i></div>
-                                    <h5 class="fw-bold mb-0 text-dark">High-Concurrency Safety</h5>
+                                    <div class="fs-2 text-primary"><i class="fa-solid fa-key"></i></div>
+                                    <h5 class="fw-bold mb-0 text-dark">JWT Authentication & RBAC</h5>
                                 </div>
-                                <p class="small text-muted mb-0">Using transactional isolation rules and fine-tuned indexing strategies, backends handle immense data streaming volumes across multi-branch financial accounting channels without risking locked pipelines or data mutation errors.</p>
+                                <p class="small text-muted mb-3 flex-grow-1">Stateless authorization pipelines issuing signed JWT tokens with embedded user claim contexts, branch access permissions, and role-based policy enforcement across endpoints.</p>
+                                <div class="p-3 bg-light rounded-3 border">
+                                    <div class="fw-semibold small text-dark mb-1">Security Features:</div>
+                                    <ul class="list-unstyled mb-0 small text-muted">
+                                        <li><i class="fa-solid fa-lock text-success me-2"></i>HMAC-SHA256 Token Signing</li>
+                                        <li><i class="fa-solid fa-user-check text-success me-2"></i>Granular Branch Level Policies</li>
+                                        <li><i class="fa-solid fa-clock text-success me-2"></i>Automated Token Expiration & Refresh</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="p-4 bg-light rounded-4 border">
+
+                        <div class="col-lg-6">
+                            <div class="p-4 bg-white rounded-4 border h-100 d-flex flex-column">
                                 <div class="d-flex align-items-center gap-3 mb-3">
-                                    <div class="fs-2 text-danger"><i class="fa-solid fa-user-lock"></i></div>
-                                    <h5 class="fw-bold mb-0 text-dark">Identity Tracking & Logs</h5>
+                                    <div class="fs-2 text-danger"><i class="fa-solid fa-filter-circle-xmark"></i></div>
+                                    <h5 class="fw-bold mb-0 text-dark">Middleware Validation & Exception Guard</h5>
                                 </div>
-                                <p class="small text-muted mb-0">Token checking models secure system calls end-to-end, writing clear execution metadata across transactional pathways so financial or corporate auditors can verify records down to the individual operator scale.</p>
+                                <p class="small text-muted mb-3 flex-grow-1">Global ASP.NET Core middleware pipelines that catch raw system errors, sanitize outputs before reaching clients, and enforce strict request payload DTO validation.</p>
+                                <div class="p-3 bg-light rounded-3 border">
+                                    <div class="fw-semibold small text-dark mb-1">Pipeline Highlights:</div>
+                                    <ul class="list-unstyled mb-0 small text-muted">
+                                        <li><i class="fa-solid fa-shield-halved text-success me-2"></i>Global Exception Interceptor</li>
+                                        <li><i class="fa-solid fa-check-double text-success me-2"></i>FluentValidation DTO Handlers</li>
+                                        <li><i class="fa-solid fa-file-shield text-success me-2"></i>Standardized API Response Wrappers</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1997,6 +2206,28 @@
         </div>
     </div>
 </section>
+
+<!-- FULL-SCREEN CENTERED SCHEMA MODAL OVERLAY -->
+<div class="modal fade backdrop-blur" id="schemaModal" tabindex="-1" aria-labelledby="schemaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content border-0 shadow-lg bg-dark text-white rounded-4 overflow-hidden">
+            <div class="modal-header border-bottom border-secondary px-4 py-3">
+                <h5 class="modal-title font-monospace small" id="schemaModalLabel">Database Schema View</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-3 p-md-4 text-center bg-black d-flex align-items-center justify-content-center" style="min-height: 70vh;">
+                <img id="modalSchemaImg" src="" alt="Expanded Schema Diagram" class="img-fluid rounded shadow" style="max-height: 80vh; width: auto; object-fit: contain;">
+            </div>
+            <div class="modal-footer border-top border-secondary px-4 py-2 justify-content-between">
+                <span class="small text-muted"><i class="fa-solid fa-info-circle me-1"></i> Use mouse or touch controls to inspect schema structure</span>
+                <button type="button" class="btn btn-outline-light btn-sm rounded-pill px-4" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 
     <section id="social" class="social-container text-center">
         <div class="container">
@@ -2221,6 +2452,21 @@
     const targetModal = new bootstrap.Modal(document.getElementById('solutionModal'));
     targetModal.show();
 }
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    var schemaModal = document.getElementById('schemaModal');
+    if (schemaModal) {
+        schemaModal.addEventListener('show.bs.modal', function (event) {
+            var trigger = event.relatedTarget;
+            var imgSrc = trigger.getAttribute('data-img-src');
+            var title = trigger.getAttribute('data-title');
+            
+            document.getElementById('modalSchemaImg').setAttribute('src', imgSrc);
+            document.getElementById('schemaModalLabel').textContent = title;
+        });
+    }
+});
     </script>
 </body>
 </html>
